@@ -124,7 +124,8 @@ class CyberCanvas {
   init() {
     this.width = this.canvas.width = window.innerWidth;
     this.height = this.canvas.height = window.innerHeight;
-    const count = Math.min(Math.floor((this.width * this.height) / 18000), 75);
+    const isMobile = this.width < 768;
+    const count = isMobile ? 26 : Math.min(Math.floor((this.width * this.height) / 18000), 75);
     this.particles = [];
     for (let i = 0; i < count; i++) {
       this.particles.push({
@@ -137,7 +138,8 @@ class CyberCanvas {
     }
 
     this.bits = [];
-    for (let i = 0; i < 24; i++) {
+    const bitCount = isMobile ? 10 : 24;
+    for (let i = 0; i < bitCount; i++) {
       this.bits.push({
         x: Math.random() * this.width,
         y: Math.random() * this.height,
@@ -155,6 +157,26 @@ class CyberCanvas {
       this.mouse.y = e.clientY;
     });
     window.addEventListener('mouseout', () => {
+      this.mouse.x = -1000;
+      this.mouse.y = -1000;
+    });
+
+    // Touch events for mobile screens
+    window.addEventListener('touchstart', (e) => {
+      if (e.touches[0]) {
+        this.mouse.x = e.touches[0].clientX;
+        this.mouse.y = e.touches[0].clientY;
+      }
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (e) => {
+      if (e.touches[0]) {
+        this.mouse.x = e.touches[0].clientX;
+        this.mouse.y = e.touches[0].clientY;
+      }
+    }, { passive: true });
+
+    window.addEventListener('touchend', () => {
       this.mouse.x = -1000;
       this.mouse.y = -1000;
     });
@@ -232,7 +254,7 @@ class DeXSimulator {
     this.appContentEl = document.getElementById('dexSimAppContent');
 
     this.isDragging = false;
-    this.pos = { x: 40, y: 30 };
+    this.pos = window.innerWidth < 640 ? { x: 10, y: 10 } : { x: 40, y: 30 };
     this.dragStart = { x: 0, y: 0 };
     this.isMaximized = false;
     this.isMinimized = false;
@@ -244,8 +266,9 @@ class DeXSimulator {
     this.updateClock();
     setInterval(() => this.updateClock(), 1000);
 
-    // Draggable window logic
+    // Draggable window logic (Mouse & Touch)
     if (this.titlebarEl) {
+      // Mouse events
       this.titlebarEl.addEventListener('mousedown', (e) => {
         if (this.isMaximized) return;
         this.isDragging = true;
@@ -261,9 +284,9 @@ class DeXSimulator {
         let newX = e.clientX - this.dragStart.x;
         let newY = e.clientY - this.dragStart.y;
 
-        // Keep within simulator bounds
-        newX = Math.max(10, Math.min(newX, rect.width - 320));
-        newY = Math.max(10, Math.min(newY, rect.height - 180));
+        const minW = window.innerWidth < 640 ? 200 : 320;
+        newX = Math.max(5, Math.min(newX, rect.width - minW));
+        newY = Math.max(5, Math.min(newY, rect.height - 140));
 
         this.pos.x = newX;
         this.pos.y = newY;
@@ -272,6 +295,36 @@ class DeXSimulator {
       });
 
       window.addEventListener('mouseup', () => {
+        this.isDragging = false;
+      });
+
+      // Touch events for mobile phones
+      this.titlebarEl.addEventListener('touchstart', (e) => {
+        if (this.isMaximized || !e.touches[0]) return;
+        this.isDragging = true;
+        this.dragStart.x = e.touches[0].clientX - this.pos.x;
+        this.dragStart.y = e.touches[0].clientY - this.pos.y;
+        this.windowEl.classList.add('active');
+        audio.blip(500, 0.03);
+      }, { passive: true });
+
+      window.addEventListener('touchmove', (e) => {
+        if (!this.isDragging || !e.touches[0]) return;
+        const rect = this.container.getBoundingClientRect();
+        let newX = e.touches[0].clientX - this.dragStart.x;
+        let newY = e.touches[0].clientY - this.dragStart.y;
+
+        const minW = window.innerWidth < 640 ? 200 : 320;
+        newX = Math.max(5, Math.min(newX, rect.width - minW));
+        newY = Math.max(5, Math.min(newY, rect.height - 140));
+
+        this.pos.x = newX;
+        this.pos.y = newY;
+        this.windowEl.style.left = `${this.pos.x}px`;
+        this.windowEl.style.top = `${this.pos.y}px`;
+      }, { passive: true });
+
+      window.addEventListener('touchend', () => {
         this.isDragging = false;
       });
     }
@@ -826,14 +879,14 @@ function openProjectModal(projectId) {
         <img id="modalActiveImg" src="${project.screenshot}" alt="${project.name}" style="max-height:360px; width:auto; max-width:100%; margin:0 auto; object-fit:contain;" />
       </div>
 
-      <!-- Thumbnail Strip if multiple images -->
+      <!-- Thumbnail Strip if multiple images (Touch-Friendly Horizontal Swipe) -->
       ${project.gallery && project.gallery.length > 1 ? `
         <div>
           <div style="font-size:11px; font-family:'JetBrains Mono', monospace; color:#94a3b8; margin-bottom:6px;">SCREENSHOT GALLERY (${project.gallery.length} IMAGES)</div>
-          <div style="display:flex; gap:8px; overflow-x:auto; padding-bottom:6px;">
+          <div style="display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; -webkit-overflow-scrolling:touch; scrollbar-width:thin;">
             ${project.gallery.map((img, idx) => `
               <img src="${img}" class="gallery-thumb" onclick="document.getElementById('modalActiveImg').src='${img}'; audio.blip(600, 0.03);" 
-                   style="height:60px; width:90px; object-fit:cover; border-radius:6px; cursor:pointer; border:1px solid rgba(255,255,255,0.15); transition:all 0.2s;" />
+                   style="height:56px; width:84px; flex-shrink:0; object-fit:cover; border-radius:6px; cursor:pointer; border:1px solid rgba(255,255,255,0.15); transition:all 0.2s;" />
             `).join('')}
           </div>
         </div>
@@ -995,19 +1048,21 @@ document.addEventListener('DOMContentLoaded', () => {
   // 8. GitHub Metrics
   syncGitHubMetrics();
 
-  // 9. Sound Toggle Button in Header
-  const soundBtn = document.getElementById('soundToggleBtn');
-  if (soundBtn) {
-    const updateSoundLabel = () => {
-      soundBtn.innerHTML = audio.enabled ? '<span>🔊</span> Sound: ON' : '<span>🔈</span> Sound: OFF';
-      soundBtn.classList.toggle('active', audio.enabled);
-    };
-    updateSoundLabel();
-    soundBtn.addEventListener('click', () => {
-      audio.toggle();
-      updateSoundLabel();
+  // 9. Sound Toggle Buttons (Desktop & Mobile)
+  const soundBtns = document.querySelectorAll('.sound-toggle-trigger');
+  const updateSoundLabels = () => {
+    soundBtns.forEach(btn => {
+      btn.innerHTML = audio.enabled ? '<span>🔊</span> Sound: ON' : '<span>🔈</span> Sound: OFF';
+      btn.classList.toggle('active', audio.enabled);
     });
-  }
+  };
+  updateSoundLabels();
+  soundBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      audio.toggle();
+      updateSoundLabels();
+    });
+  });
 
   // 10. Modal Event Listeners
   const modal = document.getElementById('projectModal');
@@ -1053,17 +1108,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 13. Mobile Menu
+  // 13. Mobile Menu with Click-Outside Dismiss
   const mobileToggle = document.getElementById('mobileMenuToggle');
   const mobileMenu = document.getElementById('mobileMenu');
   if (mobileToggle && mobileMenu) {
-    mobileToggle.addEventListener('click', () => {
+    mobileToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
       mobileMenu.classList.toggle('hidden');
       audio.blip(500, 0.03);
     });
 
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+      }
     });
   }
 });

@@ -132,7 +132,7 @@
         </div>
 
         <!-- Synthesizer Audio Toggle -->
-        <button id="soundToggleBtn" class="sound-toggle-btn hidden sm:inline-flex" title="Toggle Web Audio SFX">
+        <button id="soundToggleBtn" class="sound-toggle-btn sound-toggle-trigger hidden sm:inline-flex" title="Toggle Web Audio SFX">
           <span>🔈</span> Sound: OFF
         </button>
 
@@ -147,7 +147,7 @@
         </a>
 
         <!-- Mobile Menu Hamburger -->
-        <button id="mobileMenuToggle" class="md:hidden p-2 rounded-lg bg-slate-900 border border-slate-700 text-slate-300 hover:text-cyan-400 focus:outline-none" aria-label="Toggle Navigation">
+        <button id="mobileMenuToggle" class="md:hidden p-2.5 rounded-lg bg-slate-900 border border-slate-700 text-slate-300 hover:text-cyan-400 focus:outline-none" aria-label="Toggle Navigation">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
@@ -156,56 +156,78 @@
     </div>
 
     <!-- Mobile Dropdown Menu -->
-    <div id="mobileMenu" class="hidden md:hidden bg-[#0a0f1d] border-b border-cyan-500/20 px-6 py-4 flex flex-col gap-4 text-sm font-medium">
-      <a href="#pillars" class="hover:text-cyan-400">Pillars</a>
-      <a href="#projects" class="hover:text-cyan-400 flex items-center justify-between">
+    <div id="mobileMenu" class="hidden md:hidden bg-[#0a0f1d] border-b border-cyan-500/20 px-6 py-5 flex flex-col gap-4 text-sm font-medium">
+      <a href="#pillars" class="hover:text-cyan-400 py-1">Pillars</a>
+      <a href="#projects" class="hover:text-cyan-400 py-1 flex items-center justify-between">
         Projects <span class="px-1.5 py-0.5 text-[10px] font-mono rounded bg-cyan-950 border border-cyan-500/40 text-cyan-300">3 CORE</span>
       </a>
-      <a href="#interactive-suite" class="hover:text-cyan-400">✨ Labs & Simulators</a>
-      <a href="#pipeline" class="hover:text-cyan-400">Architecture</a>
-      <a href="#team" class="hover:text-cyan-400">Maintainers</a>
+      <a href="#interactive-suite" class="hover:text-cyan-400 py-1">✨ Labs & Simulators</a>
+      <a href="#pipeline" class="hover:text-cyan-400 py-1">Architecture</a>
+      <a href="#team" class="hover:text-cyan-400 py-1">Maintainers</a>
+
+      <!-- Mobile Controls: Audio & Theme Accents -->
+      <div class="pt-4 mt-2 border-t border-slate-800 flex flex-col gap-3">
+        <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+          <span>Cyber Accent:</span>
+          <div class="flex items-center gap-2">
+            <button class="theme-btn w-6 h-6 rounded-full bg-[#00f0ff] transition-transform active:scale-95" data-theme="cyan" title="Cyan Nexus"></button>
+            <button class="theme-btn w-6 h-6 rounded-full bg-[#10b981] transition-transform active:scale-95" data-theme="emerald" title="Matrix Emerald"></button>
+            <button class="theme-btn w-6 h-6 rounded-full bg-[#8b5cf6] transition-transform active:scale-95" data-theme="purple" title="Electric Violet"></button>
+            <button class="theme-btn w-6 h-6 rounded-full bg-[#f59e0b] transition-transform active:scale-95" data-theme="amber" title="Solar Amber"></button>
+          </div>
+        </div>
+
+        <button class="sound-toggle-btn sound-toggle-trigger w-full justify-center py-2.5 rounded-lg" title="Toggle Web Audio SFX">
+          <span>🔈</span> Sound: OFF
+        </button>
+
+        <a href="https://github.com/Bit-manipulators" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-lg bg-slate-900 border border-slate-700 text-xs font-mono text-slate-200">
+          GitHub Collective ↗
+        </a>
+      </div>
     </div>
   </header>
 
   <!-- ===================================================================
        2. HERO SECTION
        =================================================================== -->
-  <section class="relative pt-20 pb-20 md:pt-28 md:pb-24 overflow-hidden z-10">
+  <section class="relative pt-16 pb-16 md:pt-28 md:pb-24 overflow-hidden z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
       
       <!-- Eyebrow Pill -->
-      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-xs font-mono text-cyan-300 shadow-[0_0_20px_rgba(0,240,255,0.2)] mb-8">
+      <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-[11px] sm:text-xs font-mono text-cyan-300 shadow-[0_0_20px_rgba(0,240,255,0.2)] mb-6 sm:mb-8">
         <span class="pulse-indicator"></span>
         <span class="tracking-wide">OPEN-SOURCE ENGINEERING COLLECTIVE • INDIA</span>
       </div>
 
       <!-- Main Headline -->
-      <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight max-w-5xl mx-auto leading-tight md:leading-[1.15]">
+      <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight max-w-5xl mx-auto leading-tight md:leading-[1.15]">
         <span class="text-white">Bending Bits.</span><br/>
         <span class="text-gradient-cyan">Unleashing Mobile Hardware.</span><br/>
         <span class="text-gradient-purple">Engineering Zero-Trust Systems.</span>
       </h1>
 
       <!-- Subtitle Manifesto -->
-      <p class="mt-8 text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+      <p class="mt-6 sm:mt-8 text-base sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed px-2 sm:px-0">
         We bridge everyday mobile devices into high-performance desktop workstations, craft zero-trust developer sandboxes with instant on-device AI diagnostics, and engineer deterministic Android systems where <span class="text-cyan-400 font-semibold underline decoration-cyan-500/50 underline-offset-4">100% of telemetry remains strictly on-device</span>.
       </p>
 
-      <!-- Primary Action Buttons -->
-      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
-        <a href="#interactive-suite" class="btn-cyber-primary text-sm sm:text-base">
+      <!-- Primary Action Buttons (Responsive Mobile Stack) -->
+      <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-md sm:max-w-none mx-auto">
+        <a href="#interactive-suite" class="btn-cyber-primary text-sm sm:text-base w-full sm:w-auto">
           <span>✨ Launch Interactive Labs</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </a>
 
-        <a href="#projects" class="btn-cyber-secondary font-mono text-sm sm:text-base">
+        <a href="#projects" class="btn-cyber-secondary font-mono text-sm sm:text-base w-full sm:w-auto">
           <span>Explore Projects</span>
         </a>
 
         <a href="https://github.com/Bit-manipulators" target="_blank" rel="noopener noreferrer" 
-           class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-900/70 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700/80 transition-all text-sm font-medium">
+           class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-slate-900/70 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700/80 transition-all text-sm font-medium w-full sm:w-auto">
           <span>GitHub Collective</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -213,31 +235,44 @@
         </a>
       </div>
 
-      <!-- Live Telemetry HUD Bar -->
-      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto text-left">
-        <div class="glass-panel p-5">
-          <div class="text-xs font-mono text-cyan-400 mb-1 flex items-center justify-between">
+      <!-- Live Telemetry HUD Bar (Compact & Responsive) -->
+      <div class="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-5xl mx-auto text-left">
+        <div class="glass-panel p-3.5 sm:p-5">
+          <div class="text-[10px] sm:text-xs font-mono text-cyan-400 mb-1 flex items-center justify-between">
             <span>CORE SYSTEMS</span>
-            <span class="text-slate-500">SYS_01</span>
+            <span class="text-slate-500 hidden sm:inline">SYS_01</span>
           </div>
-          <div class="text-2xl sm:text-3xl font-extrabold text-white">3 Flagships</div>
-          <div class="text-xs text-slate-400 mt-1">Linux DeX, DevLens & AppPulse</div>
+          <div class="text-xl sm:text-3xl font-extrabold text-white">3 Flagships</div>
+          <div class="text-[11px] sm:text-xs text-slate-400 mt-0.5">Linux DeX, DevLens, AppPulse</div>
         </div>
 
-        <div class="glass-panel p-5">
-          <div class="text-xs font-mono text-purple-400 mb-1 flex items-center justify-between">
+        <div class="glass-panel p-3.5 sm:p-5">
+          <div class="text-[10px] sm:text-xs font-mono text-purple-400 mb-1 flex items-center justify-between">
             <span>PROVENANCE</span>
-            <span class="text-slate-500">LIC_02</span>
+            <span class="text-slate-500 hidden sm:inline">LIC_02</span>
           </div>
-          <div class="text-2xl sm:text-3xl font-extrabold text-white">100% Clean</div>
-          <div class="text-xs text-slate-400 mt-1">GPLv3 & MIT Open Source</div>
+          <div class="text-xl sm:text-3xl font-extrabold text-white">100% Clean</div>
+          <div class="text-[11px] sm:text-xs text-slate-400 mt-0.5">GPLv3 & MIT Open Source</div>
         </div>
 
-        <div class="glass-panel p-5">
-          <div class="text-xs font-mono text-emerald-400 mb-1 flex items-center justify-between">
+        <div class="glass-panel p-3.5 sm:p-5">
+          <div class="text-[10px] sm:text-xs font-mono text-emerald-400 mb-1 flex items-center justify-between">
             <span>PRIVACY EGRESS</span>
-            <span class="text-slate-500">NET_03</span>
+            <span class="text-slate-500 hidden sm:inline">NET_03</span>
           </div>
+          <div class="text-xl sm:text-3xl font-extrabold text-white">0% Leaked</div>
+          <div class="text-[11px] sm:text-xs text-slate-400 mt-0.5">Local SQLite & Sandbox</div>
+        </div>
+
+        <div class="glass-panel p-3.5 sm:p-5">
+          <div class="text-[10px] sm:text-xs font-mono text-amber-400 mb-1 flex items-center justify-between">
+            <span>FRAME PIPELINE</span>
+            <span class="text-slate-500 hidden sm:inline">FPS_04</span>
+          </div>
+          <div class="text-xl sm:text-3xl font-extrabold text-white">&lt; 15ms</div>
+          <div class="text-[11px] sm:text-xs text-slate-400 mt-0.5">60 FPS In-Process FFmpeg</div>
+        </div>
+      </div>
           <div class="text-2xl sm:text-3xl font-extrabold text-white">0% Leaked</div>
           <div class="text-xs text-slate-400 mt-1">Local SQLite & --net=none Sandbox</div>
         </div>
@@ -412,12 +447,12 @@
               <textarea id="devlensEditor" rows="7" class="w-full bg-[#060911] border border-slate-800 rounded-lg p-3 font-mono text-xs text-purple-200 focus:outline-none focus:border-purple-400 resize-none leading-relaxed"></textarea>
             </div>
 
-            <!-- Action Controls -->
-            <div class="flex items-center gap-3 mb-4">
-              <button id="devlensAnalyzeBtn" class="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-mono text-xs font-semibold shadow-md flex items-center gap-2">
+            <!-- Action Controls (Touch-Friendly Responsive Layout) -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 mb-4">
+              <button id="devlensAnalyzeBtn" class="w-full sm:w-auto px-4 py-2.5 rounded-lg bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-mono text-xs font-semibold shadow-md flex items-center justify-center gap-2 min-h-[42px] active:scale-[0.98] transition-transform">
                 <span>⚡</span> Analyze with DevLens
               </button>
-              <button id="devlensRepairBtn" style="display:none;" class="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-mono text-xs font-semibold shadow-md flex items-center gap-2">
+              <button id="devlensRepairBtn" style="display:none;" class="w-full sm:w-auto px-4 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-mono text-xs font-semibold shadow-md flex items-center justify-center gap-2 min-h-[42px] active:scale-[0.98] transition-transform">
                 <span>🛠️</span> Apply 1-Tap Diff Repair
               </button>
             </div>
@@ -475,16 +510,16 @@
               </div>
             </div>
 
-            <!-- Score Dial & Deductions -->
-            <div class="p-4 rounded-xl bg-[#0c1322] border border-slate-800 flex items-center justify-between gap-4">
-              <div>
+            <!-- Score Dial & Deductions (Responsive on Mobile) -->
+            <div class="p-4 rounded-xl bg-[#0c1322] border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div class="flex items-center sm:block gap-4 sm:gap-0">
                 <div class="text-[10px] font-mono text-slate-400 uppercase">Phone Vitality Index</div>
-                <div id="calcScoreValue" class="text-4xl font-extrabold text-emerald-400">94</div>
+                <div id="calcScoreValue" class="text-3xl sm:text-4xl font-extrabold text-emerald-400">94</div>
                 <div id="calcScoreCategory" class="text-xs font-mono font-bold text-emerald-400">OPTIMAL</div>
               </div>
-              <div class="flex-1 pl-4 border-l border-slate-800 text-[11px] font-mono">
+              <div class="flex-1 w-full sm:w-auto pl-0 sm:pl-4 pt-3 sm:pt-0 border-t sm:border-t-0 sm:border-l border-slate-800 text-[11px] font-mono">
                 <div class="text-slate-400 mb-1">Transparent Point Deductions:</div>
-                <div id="calcDeductions" class="space-y-0.5 max-h-16 overflow-y-auto">
+                <div id="calcDeductions" class="space-y-0.5 max-h-20 overflow-y-auto">
                   <span class="text-emerald-400">✓ 0 Deductions. All metrics optimal.</span>
                 </div>
               </div>
@@ -612,19 +647,19 @@
           </p>
         </div>
 
-        <!-- Filter Buttons & Search -->
-        <div class="flex flex-col sm:flex-row gap-3">
-          <div class="relative">
+        <!-- Filter Buttons & Search (Mobile Touch Optimized) -->
+        <div class="flex flex-col sm:flex-row gap-2.5 sm:gap-3 w-full sm:w-auto">
+          <div class="relative w-full sm:w-48">
             <input type="text" id="projectSearch" placeholder="Search systems, tags..." 
-                   class="bg-slate-900/90 border border-slate-700 rounded-lg px-3.5 py-2 text-xs font-mono text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-400 w-full sm:w-48" />
-            <span class="absolute right-3 top-2.5 text-slate-500 text-xs">🔍</span>
+                   class="bg-slate-900/90 border border-slate-700 rounded-lg px-3.5 py-2.5 text-xs font-mono text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-400 w-full" />
+            <span class="absolute right-3 top-3 text-slate-500 text-xs">🔍</span>
           </div>
 
-          <div class="flex flex-wrap gap-1.5 p-1 bg-slate-900/90 rounded-lg border border-slate-800">
-            <button class="filter-btn active px-3 py-1.5 text-xs font-mono rounded border border-cyan-400 text-cyan-400 transition-all" data-filter="all">All</button>
-            <button class="filter-btn px-3 py-1.5 text-xs font-mono rounded text-slate-400 hover:text-white transition-all" data-filter="systems">Systems</button>
-            <button class="filter-btn px-3 py-1.5 text-xs font-mono rounded text-slate-400 hover:text-white transition-all" data-filter="ai-devtools">AI & Sandbox</button>
-            <button class="filter-btn px-3 py-1.5 text-xs font-mono rounded text-slate-400 hover:text-white transition-all" data-filter="mobile">Android</button>
+          <div class="flex flex-wrap gap-1 p-1 bg-slate-900/90 rounded-lg border border-slate-800 w-full sm:w-auto justify-between sm:justify-start">
+            <button class="filter-btn active flex-1 sm:flex-initial text-center px-3 py-2 text-xs font-mono rounded border border-cyan-400 text-cyan-400 transition-all" data-filter="all">All</button>
+            <button class="filter-btn flex-1 sm:flex-initial text-center px-3 py-2 text-xs font-mono rounded text-slate-400 hover:text-white transition-all" data-filter="systems">Systems</button>
+            <button class="filter-btn flex-1 sm:flex-initial text-center px-3 py-2 text-xs font-mono rounded text-slate-400 hover:text-white transition-all" data-filter="ai-devtools">AI</button>
+            <button class="filter-btn flex-1 sm:flex-initial text-center px-3 py-2 text-xs font-mono rounded text-slate-400 hover:text-white transition-all" data-filter="mobile">Android</button>
           </div>
         </div>
       </div>
@@ -879,18 +914,21 @@
             <h4 class="font-bold text-white text-sm mb-2">Android 10–16 Hardware</h4>
             <p class="text-xs text-slate-400">Headless virtual display instantiated via ADB server socket tunnel (`--new-display`).</p>
           </div>
+          <div class="md:hidden flex justify-center text-cyan-400 font-bold text-xs py-0.5">↓</div>
           <!-- Step 2 -->
           <div class="p-4 rounded-xl bg-slate-900/90 border border-cyan-500/30 relative">
             <div class="text-[10px] font-mono text-cyan-400 mb-1">STAGE 02 // TUNNELING</div>
             <h4 class="font-bold text-white text-sm mb-2">Scrcpy H.264 Pipe</h4>
             <p class="text-xs text-slate-400">Raw video bytes piped through local Unix sockets without intermediary file writes.</p>
           </div>
+          <div class="md:hidden flex justify-center text-cyan-400 font-bold text-xs py-0.5">↓</div>
           <!-- Step 3 -->
           <div class="p-4 rounded-xl bg-slate-900/90 border border-cyan-500/30 relative">
             <div class="text-[10px] font-mono text-cyan-400 mb-1">STAGE 03 // C++ DECODER</div>
             <h4 class="font-bold text-white text-sm mb-2">FFmpeg GPU Texture</h4>
             <p class="text-xs text-slate-400">Hardware-accelerated in-process texture decoding yielding glass-to-glass latency of &lt;15ms.</p>
           </div>
+          <div class="md:hidden flex justify-center text-cyan-400 font-bold text-xs py-0.5">↓</div>
           <!-- Step 4 -->
           <div class="p-4 rounded-xl bg-slate-900/90 border border-cyan-500/30 relative">
             <div class="text-[10px] font-mono text-cyan-400 mb-1">STAGE 04 // COMPOSITOR</div>
@@ -908,16 +946,19 @@
             <h4 class="font-bold text-white text-sm mb-2">In-Memory Camera OCR</h4>
             <p class="text-xs text-slate-400">Live photograph digitized directly in memory buffers. Zero raw pixel images saved to disk.</p>
           </div>
+          <div class="md:hidden flex justify-center text-purple-400 font-bold text-xs py-0.5">↓</div>
           <div class="p-4 rounded-xl bg-slate-900/90 border border-purple-500/30">
             <div class="text-[10px] font-mono text-purple-400 mb-1">STAGE 02 // PARSER</div>
             <h4 class="font-bold text-white text-sm mb-2">Static AST Heuristics</h4>
             <p class="text-xs text-slate-400">Sub-second AST analysis for syntax, null pointer, and memory bounds across 4 languages.</p>
           </div>
+          <div class="md:hidden flex justify-center text-purple-400 font-bold text-xs py-0.5">↓</div>
           <div class="p-4 rounded-xl bg-slate-900/90 border border-purple-500/30">
             <div class="text-[10px] font-mono text-purple-400 mb-1">STAGE 03 // SANDBOX</div>
             <h4 class="font-bold text-white text-sm mb-2">Ephemeral Micro-Container</h4>
             <p class="text-xs text-slate-400">Executed with `--net=none`, read-only rootfs, dropped capabilities, and 256MB ceiling.</p>
           </div>
+          <div class="md:hidden flex justify-center text-purple-400 font-bold text-xs py-0.5">↓</div>
           <div class="p-4 rounded-xl bg-slate-900/90 border border-purple-500/30">
             <div class="text-[10px] font-mono text-purple-400 mb-1">STAGE 04 // VERIFICATION</div>
             <h4 class="font-bold text-white text-sm mb-2">1-Tap Diff Repair</h4>
@@ -934,16 +975,19 @@
             <h4 class="font-bold text-white text-sm mb-2">Hardware Telemetry</h4>
             <p class="text-xs text-slate-400">Local OS queries for RAM, flash wear, and app manifests with strictly 0 bytes network egress.</p>
           </div>
+          <div class="md:hidden flex justify-center text-emerald-400 font-bold text-xs py-0.5">↓</div>
           <div class="p-4 rounded-xl bg-slate-900/90 border border-emerald-500/30">
             <div class="text-[10px] font-mono text-emerald-400 mb-1">STAGE 02 // AUDITING</div>
             <h4 class="font-bold text-white text-sm mb-2">Permission Scanner</h4>
             <p class="text-xs text-slate-400">Scans Camera, Mic, Background Location, and detects suspicious stealth or stalkerware packages.</p>
           </div>
+          <div class="md:hidden flex justify-center text-emerald-400 font-bold text-xs py-0.5">↓</div>
           <div class="p-4 rounded-xl bg-slate-900/90 border border-emerald-500/30">
             <div class="text-[10px] font-mono text-emerald-400 mb-1">STAGE 03 // FORMULAS</div>
             <h4 class="font-bold text-white text-sm mb-2">Deterministic Scoring</h4>
             <p class="text-xs text-slate-400">Mathematical scoring from 0 to 100 with root cause explanations rather than fake animations.</p>
           </div>
+          <div class="md:hidden flex justify-center text-emerald-400 font-bold text-xs py-0.5">↓</div>
           <div class="p-4 rounded-xl bg-slate-900/90 border border-emerald-500/30">
             <div class="text-[10px] font-mono text-emerald-400 mb-1">STAGE 04 // REMEDIATION</div>
             <h4 class="font-bold text-white text-sm mb-2">Non-Destructive Action</h4>
