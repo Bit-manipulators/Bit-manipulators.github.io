@@ -85,7 +85,7 @@
   <!-- ===================================================================
        1. NAVIGATION BAR
        =================================================================== -->
-  <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#07090e]/85 border-b border-cyan-500/20 transition-all">
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#07090e]/90 border-b border-cyan-500/20 transition-all">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- Logo & Brand -->
@@ -107,23 +107,38 @@
       </a>
 
       <!-- Desktop Navigation Links -->
-      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
         <a href="#pillars" class="hover:text-cyan-400 transition-colors">Pillars</a>
         <a href="#projects" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
           Projects
           <span class="px-1.5 py-0.5 text-[10px] font-mono rounded bg-cyan-950 border border-cyan-500/40 text-cyan-300">3 CORE</span>
         </a>
-        <a href="#architecture" class="hover:text-cyan-400 transition-colors">Architecture</a>
-        <a href="#terminal" class="hover:text-cyan-400 transition-colors flex items-center gap-1 text-cyan-400/90 font-mono text-xs">
+        <a href="#interactive-suite" class="hover:text-cyan-400 transition-colors flex items-center gap-1 text-cyan-300">
+          <span>✨</span> Labs & Simulators
+        </a>
+        <a href="#pipeline" class="hover:text-cyan-400 transition-colors">Architecture</a>
+        <a href="#terminal" class="hover:text-cyan-400 transition-colors flex items-center gap-1 font-mono text-xs">
           <span class="text-emerald-400">>_</span> Terminal
         </a>
-        <a href="#stack" class="hover:text-cyan-400 transition-colors">Tech Matrix</a>
         <a href="#team" class="hover:text-cyan-400 transition-colors">Team</a>
-        <a href="#community" class="hover:text-cyan-400 transition-colors">Community</a>
       </nav>
 
-      <!-- Action Buttons -->
+      <!-- Action Buttons & Audio & Theme Accents -->
       <div class="flex items-center gap-3">
+        
+        <!-- Theme Accent Switcher -->
+        <div class="hidden lg:flex items-center gap-1.5 p-1 bg-slate-900/90 rounded-lg border border-slate-800" title="Switch Cyber Accent">
+          <button class="theme-btn w-4 h-4 rounded-full bg-[#00f0ff] hover:scale-110 transition-transform" data-theme="cyan" title="Cyan Nexus"></button>
+          <button class="theme-btn w-4 h-4 rounded-full bg-[#10b981] hover:scale-110 transition-transform" data-theme="emerald" title="Matrix Emerald"></button>
+          <button class="theme-btn w-4 h-4 rounded-full bg-[#8b5cf6] hover:scale-110 transition-transform" data-theme="purple" title="Electric Violet"></button>
+          <button class="theme-btn w-4 h-4 rounded-full bg-[#f59e0b] hover:scale-110 transition-transform" data-theme="amber" title="Solar Amber"></button>
+        </div>
+
+        <!-- Synthesizer Audio Toggle -->
+        <button id="soundToggleBtn" class="sound-toggle-btn hidden sm:inline-flex" title="Toggle Web Audio SFX">
+          <span>🔈</span> Sound: OFF
+        </button>
+
         <!-- Live GitHub Org Badge -->
         <a href="https://github.com/Bit-manipulators" target="_blank" rel="noopener noreferrer" 
            class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-slate-900/90 border border-slate-700/80 hover:border-cyan-400/60 text-xs font-mono text-slate-200 hover:text-cyan-300 transition-all shadow-sm">
@@ -149,18 +164,17 @@
       <a href="#projects" class="hover:text-cyan-400 flex items-center justify-between">
         Projects <span class="px-1.5 py-0.5 text-[10px] font-mono rounded bg-cyan-950 border border-cyan-500/40 text-cyan-300">3 CORE</span>
       </a>
-      <a href="#architecture" class="hover:text-cyan-400">Architecture</a>
+      <a href="#interactive-suite" class="hover:text-cyan-400">✨ Labs & Simulators</a>
+      <a href="#pipeline" class="hover:text-cyan-400">Architecture</a>
       <a href="#terminal" class="hover:text-cyan-400 text-cyan-400 font-mono">>_ Interactive CLI</a>
-      <a href="#stack" class="hover:text-cyan-400">Tech Matrix</a>
       <a href="#team" class="hover:text-cyan-400">Maintainers</a>
-      <a href="#community" class="hover:text-cyan-400">Community</a>
     </div>
   </header>
 
   <!-- ===================================================================
        2. HERO SECTION
        =================================================================== -->
-  <section class="relative pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden z-10">
+  <section class="relative pt-20 pb-20 md:pt-28 md:pb-24 overflow-hidden z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
       
       <!-- Eyebrow Pill -->
@@ -183,28 +197,23 @@
 
       <!-- Primary Action Buttons -->
       <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
-        <a href="#projects" class="btn-cyber-primary text-sm sm:text-base">
-          <span>Explore Featured Systems</span>
+        <a href="#interactive-suite" class="btn-cyber-primary text-sm sm:text-base">
+          <span>✨ Launch Interactive Labs</span>
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
         </a>
 
-        <a href="#terminal" class="btn-cyber-secondary font-mono text-sm sm:text-base">
-          <span class="text-emerald-400">>_</span>
-          <span>Launch Web Terminal CLI</span>
+        <a href="#projects" class="btn-cyber-secondary font-mono text-sm sm:text-base">
+          <span>Explore Projects</span>
         </a>
 
-        <a href="https://github.com/Bit-manipulators" target="_blank" rel="noopener noreferrer" 
-           class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-900/60 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700/60 transition-all text-sm font-medium">
-          <span>GitHub Organization</span>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-          </svg>
+        <a href="#terminal" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-900/70 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700/80 transition-all text-sm font-mono">
+          <span class="text-emerald-400">>_</span> Web CLI
         </a>
       </div>
 
-      <!-- Real-time Metrics / Telemetry Bar -->
+      <!-- Live Telemetry HUD Bar -->
       <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto text-left">
         <div class="glass-panel p-5">
           <div class="text-xs font-mono text-cyan-400 mb-1 flex items-center justify-between">
@@ -247,7 +256,249 @@
   </section>
 
   <!-- ===================================================================
-       3. CORE ENGINEERING PILLARS
+       3. INTERACTIVE LABS & LIVE SIMULATOR SUITE (NEW SECTION)
+       =================================================================== -->
+  <section id="interactive-suite" class="py-24 relative z-10 border-t border-slate-800 bg-[#090e1b]/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-xs font-mono text-cyan-400 tracking-widest uppercase mb-2">// HANDS-ON LABS</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+          Interactive Live Simulators & Playground
+        </h2>
+        <p class="mt-4 text-slate-400 text-base">
+          Experience our technologies in action right in your browser. Drag a live DeX multi-window desktop, test DevLens static code diagnostics with 1-tap diff repair, and audit deterministic vitality scores.
+        </p>
+      </div>
+
+      <!-- LAB 1: INTERACTIVE OPEN ANDROID DEX DESKTOP SIMULATOR -->
+      <div class="glass-panel p-6 sm:p-8 mb-12 border-cyan-500/30">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+          <div>
+            <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-cyan-950 border border-cyan-500/40 text-[11px] font-mono text-cyan-300 mb-2">
+              <span>🖥️</span> LAB 01: OPEN ANDROID DEX WORKSTATION
+            </div>
+            <h3 class="text-2xl font-bold text-white">Multi-Window Android Linux Desktop Experience</h3>
+            <p class="text-xs sm:text-sm text-slate-400 mt-1">
+              Drag the floating window, toggle fullscreen, launch apps from the 9-dot launcher, and experience Android computing on Linux.
+            </p>
+          </div>
+          <div class="flex items-center gap-2 text-xs font-mono text-slate-400">
+            <span class="status-pill success">60 FPS Texture Pipeline</span>
+            <span class="status-pill info">Target: Wayland & X11</span>
+          </div>
+        </div>
+
+        <!-- The Interactive Desktop Simulator Canvas Frame -->
+        <div id="dexSimulator" class="dex-simulator">
+          <div class="dex-sim-wallpaper"></div>
+
+          <!-- Draggable Android Window -->
+          <div id="dexSimWindow" class="dex-sim-window" style="left: 40px; top: 30px; width: 340px; height: 240px; z-index: 20;">
+            <!-- Window Titlebar (Drag Handle) -->
+            <div id="dexSimTitlebar" class="dex-sim-titlebar">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                <span id="dexSimWindowTitle" class="text-xs font-mono text-slate-200 font-semibold truncate">Terminal — Android Subsystem</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <button id="dexSimMinBtn" class="w-4 h-4 rounded bg-slate-800 hover:bg-slate-700 text-slate-400 text-[10px] flex items-center justify-center font-bold" title="Minimize">−</button>
+                <button id="dexSimMaxBtn" class="w-4 h-4 rounded bg-slate-800 hover:bg-slate-700 text-slate-400 text-[10px] flex items-center justify-center font-bold" title="Maximize">□</button>
+                <button id="dexSimCloseBtn" class="w-4 h-4 rounded bg-rose-900/60 hover:bg-rose-800 text-rose-300 text-[10px] flex items-center justify-center font-bold" title="Close">✕</button>
+              </div>
+            </div>
+
+            <!-- Window Content -->
+            <div id="dexSimAppContent" class="p-3 bg-[#0a0f1d] flex-1 overflow-auto">
+              <div style="font-family:'JetBrains Mono', monospace; font-size:11px; color:#38bdf8; line-height:1.5;">
+                <span style="color:#10b981;">u0_a248@android:~$</span> uname -a<br/>
+                Linux localhost 6.1.75-android15-9-g48 #1 SMP PREEMPT aarch64 Android<br/>
+                <span style="color:#10b981;">u0_a248@android:~$</span> scrcpy --display-id=2 --fps=60<br/>
+                <span style="color:#00f0ff;">[✓] GPU In-Process FFmpeg Texture Active (60 FPS, 12.4ms)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9-Dot App Drawer Popup Menu -->
+          <div id="dexSimDrawer" class="dex-sim-drawer">
+            <div class="text-[11px] font-mono text-cyan-400 font-bold mb-3 pb-2 border-b border-slate-800 flex items-center justify-between">
+              <span>ANDROID 15 APPS</span>
+              <span class="text-slate-500">DEVICES_VIRTUAL</span>
+            </div>
+            <div class="grid grid-cols-3 gap-2 text-center text-xs">
+              <div class="dex-app-item p-2 rounded-lg bg-slate-900/80 hover:bg-cyan-950 border border-slate-800 hover:border-cyan-400 cursor-pointer transition-all" data-app="Terminal">
+                <div class="text-lg mb-1">💻</div>
+                <div class="text-[10px] text-slate-300">Terminal</div>
+              </div>
+              <div class="dex-app-item p-2 rounded-lg bg-slate-900/80 hover:bg-cyan-950 border border-slate-800 hover:border-cyan-400 cursor-pointer transition-all" data-app="AppPulse">
+                <div class="text-lg mb-1">⚡</div>
+                <div class="text-[10px] text-slate-300">AppPulse</div>
+              </div>
+              <div class="dex-app-item p-2 rounded-lg bg-slate-900/80 hover:bg-cyan-950 border border-slate-800 hover:border-cyan-400 cursor-pointer transition-all" data-app="DevLens">
+                <div class="text-lg mb-1">🔍</div>
+                <div class="text-[10px] text-slate-300">DevLens</div>
+              </div>
+              <div class="dex-app-item p-2 rounded-lg bg-slate-900/80 hover:bg-cyan-950 border border-slate-800 hover:border-cyan-400 cursor-pointer transition-all" data-app="Settings">
+                <div class="text-lg mb-1">⚙️</div>
+                <div class="text-[10px] text-slate-300">Settings</div>
+              </div>
+              <div class="dex-app-item p-2 rounded-lg bg-slate-900/80 hover:bg-cyan-950 border border-slate-800 hover:border-cyan-400 cursor-pointer transition-all" data-app="Files">
+                <div class="text-lg mb-1">📁</div>
+                <div class="text-[10px] text-slate-300">Files</div>
+              </div>
+              <div class="dex-app-item p-2 rounded-lg bg-slate-900/80 hover:bg-cyan-950 border border-slate-800 hover:border-cyan-400 cursor-pointer transition-all" data-app="Gallery">
+                <div class="text-lg mb-1">🖼️</div>
+                <div class="text-[10px] text-slate-300">Gallery</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom DeX Taskbar -->
+          <div class="dex-sim-taskbar">
+            <!-- Left: 9-Dot Launcher & Android Nav -->
+            <div class="flex items-center gap-3">
+              <button id="dexSimLauncherBtn" class="w-8 h-8 rounded-lg bg-slate-800/90 hover:bg-cyan-950 border border-slate-700 hover:border-cyan-400 text-cyan-300 flex items-center justify-center text-sm font-bold shadow-sm" title="Open App Drawer">
+                ⋮⋮⋮
+              </button>
+              <div class="flex items-center gap-1 text-slate-400 text-xs font-bold pl-2 border-l border-slate-800">
+                <button class="w-6 h-6 rounded hover:bg-slate-800 flex items-center justify-center" title="Back">◀</button>
+                <button id="dexSimHomeBtn" class="w-6 h-6 rounded hover:bg-slate-800 flex items-center justify-center text-cyan-400" title="Home">○</button>
+                <button class="w-6 h-6 rounded hover:bg-slate-800 flex items-center justify-center" title="Recents">▢</button>
+              </div>
+            </div>
+
+            <!-- Center: Active App Pill -->
+            <div class="hidden sm:flex items-center gap-2 px-3 py-1 rounded bg-slate-900/80 border border-slate-800 text-xs font-mono text-cyan-300">
+              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+              <span>Open Android DeX Session #1</span>
+            </div>
+
+            <!-- Right: System Tray & Clock -->
+            <div class="flex items-center gap-3 text-xs font-mono text-slate-300">
+              <span>📶 WiFi</span>
+              <span>🔋 98%</span>
+              <span id="dexSimClock" class="font-bold text-white pl-2 border-l border-slate-800">10:45</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LAB 2 & 3: TWO COLUMN LABS (DEVLENS PLAYGROUND & APPPULSE VITALITY CALCULATOR) -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- LAB 2: DEVLENS STATIC HEURISTICS PLAYGROUND -->
+        <div class="glass-panel p-6 sm:p-8 border-purple-500/30 flex flex-col justify-between">
+          <div>
+            <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-purple-950 border border-purple-500/40 text-[11px] font-mono text-purple-300 mb-3">
+              <span>🔍</span> LAB 02: DEVLENS STATIC ANALYZER
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Instant Static Diagnostics & 1-Tap Diff Repair</h3>
+            <p class="text-xs text-slate-400 mb-4">
+              Select a vulnerability scenario to inspect how DevLens flags AST hazards and generates regression-free one-tap repairs.
+            </p>
+
+            <!-- Language / Scenario Selector -->
+            <div class="mb-3 flex items-center justify-between">
+              <label class="text-xs font-mono text-slate-400">Sample Vulnerability:</label>
+              <select id="devlensSnippetSelect" class="bg-slate-900 border border-slate-700 rounded px-2.5 py-1 text-xs font-mono text-purple-300 focus:outline-none focus:border-purple-400">
+                <option value="python">Python — Off-by-One Loop Dereference</option>
+                <option value="javascript">JavaScript — Unhandled Optional Chain</option>
+                <option value="cpp">C++ — Unbounded String Copy Hazard</option>
+              </select>
+            </div>
+
+            <!-- Code Editor Box -->
+            <div class="relative mb-4">
+              <textarea id="devlensEditor" rows="7" class="w-full bg-[#060911] border border-slate-800 rounded-lg p-3 font-mono text-xs text-purple-200 focus:outline-none focus:border-purple-400 resize-none leading-relaxed"></textarea>
+            </div>
+
+            <!-- Action Controls -->
+            <div class="flex items-center gap-3 mb-4">
+              <button id="devlensAnalyzeBtn" class="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-mono text-xs font-semibold shadow-md flex items-center gap-2">
+                <span>⚡</span> Analyze with DevLens
+              </button>
+              <button id="devlensRepairBtn" style="display:none;" class="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-mono text-xs font-semibold shadow-md flex items-center gap-2">
+                <span>🛠️</span> Apply 1-Tap Diff Repair
+              </button>
+            </div>
+
+            <!-- Output Diagnostic Box -->
+            <div id="devlensResult" class="p-3 rounded-lg bg-[#0c1222] border border-slate-800 text-xs min-h-[70px]">
+              <span class="text-slate-500">Click "Analyze with DevLens" to test static AST rule parsing...</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- LAB 3: APPPULSE DETERMINISTIC VITALITY CALCULATOR -->
+        <div class="glass-panel p-6 sm:p-8 border-emerald-500/30 flex flex-col justify-between">
+          <div>
+            <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-emerald-950 border border-emerald-500/40 text-[11px] font-mono text-emerald-300 mb-3">
+              <span>⚡</span> LAB 03: APPPULSE VITALITY CALCULATOR
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Deterministic Scoring Engine</h3>
+            <p class="text-xs text-slate-400 mb-4">
+              Move sliders to see how AppPulse replaces deceptive cleaner scams with transparent mathematical deduction formulas.
+            </p>
+
+            <!-- Sliders Grid -->
+            <div class="space-y-3 mb-5">
+              <div>
+                <div class="flex justify-between text-xs font-mono text-slate-300 mb-1">
+                  <span>RAM Headroom (% Available):</span>
+                  <span id="calcRamVal" class="text-emerald-400 font-bold">52%</span>
+                </div>
+                <input id="calcRam" type="range" min="10" max="90" value="52" />
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-mono text-slate-300 mb-1">
+                  <span>Available Storage (Free GB):</span>
+                  <span id="calcStorageVal" class="text-emerald-400 font-bold">112 GB</span>
+                </div>
+                <input id="calcStorage" type="range" min="2" max="256" value="112" />
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-mono text-slate-300 mb-1">
+                  <span>Apps with Background Location Access:</span>
+                  <span id="calcLocationVal" class="text-amber-400 font-bold">1</span>
+                </div>
+                <input id="calcLocation" type="range" min="0" max="10" value="1" />
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-mono text-slate-300 mb-1">
+                  <span>Unused High-Drain Background Apps:</span>
+                  <span id="calcDrainVal" class="text-amber-400 font-bold">0</span>
+                </div>
+                <input id="calcDrain" type="range" min="0" max="8" value="0" />
+              </div>
+            </div>
+
+            <!-- Score Dial & Deductions -->
+            <div class="p-4 rounded-xl bg-[#0c1322] border border-slate-800 flex items-center justify-between gap-4">
+              <div>
+                <div class="text-[10px] font-mono text-slate-400 uppercase">Phone Vitality Index</div>
+                <div id="calcScoreValue" class="text-4xl font-extrabold text-emerald-400">94</div>
+                <div id="calcScoreCategory" class="text-xs font-mono font-bold text-emerald-400">OPTIMAL</div>
+              </div>
+              <div class="flex-1 pl-4 border-l border-slate-800 text-[11px] font-mono">
+                <div class="text-slate-400 mb-1">Transparent Point Deductions:</div>
+                <div id="calcDeductions" class="space-y-0.5 max-h-16 overflow-y-auto">
+                  <span class="text-emerald-400">✓ 0 Deductions. All metrics optimal.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       4. CORE ENGINEERING PILLARS
        =================================================================== -->
   <section id="pillars" class="py-24 relative z-10 border-t border-slate-800/80 bg-[#080d19]/60">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -345,7 +596,7 @@
   </section>
 
   <!-- ===================================================================
-       4. FEATURED PRODUCTION ECOSYSTEM
+       5. FEATURED PRODUCTION ECOSYSTEM
        =================================================================== -->
   <section id="projects" class="py-24 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -434,10 +685,10 @@
           <!-- Bottom Actions -->
           <div class="p-6 pt-0 border-t border-slate-800/80 flex items-center justify-between gap-3 mt-4">
             <button onclick="openProjectModal('open-android-dex')" class="text-xs font-mono text-cyan-400 hover:text-cyan-300 underline underline-offset-4">
-              Specs & Diagram →
+              Gallery & Specs →
             </button>
             <div class="flex items-center gap-2">
-              <button onclick="navigator.clipboard.writeText('git clone https://github.com/Bit-manipulators/open-android-dex.git'); showToast('Git clone command copied!');" 
+              <button onclick="navigator.clipboard.writeText('git clone https://github.com/Bit-manipulators/open-android-dex.git'); showToast('Git clone command copied!'); audio.chime();" 
                       class="px-2.5 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 font-mono" title="Copy Clone Command">
                 📋 Clone
               </button>
@@ -453,21 +704,16 @@
         <div class="project-card glass-panel flex flex-col justify-between overflow-hidden border border-purple-500/30 hover:border-purple-400" data-category="ai-devtools">
           <div>
             <!-- Banner / Header Graphic -->
-            <div class="relative h-52 overflow-hidden bg-[#0d1322] p-6 flex flex-col justify-between border-b border-purple-500/20">
-              <div class="flex justify-between items-start">
-                <div class="flex gap-2">
-                  <span class="status-pill warning">MIT License</span>
-                  <span class="status-pill info">Zero-Trust</span>
-                </div>
+            <div class="relative h-52 overflow-hidden bg-[#0d1322] border-b border-purple-500/20 group">
+              <img src="assets/images/devlens-preview.svg" alt="DevLens Architecture & Code Sandbox" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0d1322] via-transparent to-transparent"></div>
+              <div class="absolute top-3 left-3 flex gap-2">
+                <span class="status-pill warning">MIT License</span>
+                <span class="status-pill info">Zero-Trust</span>
+              </div>
+              <div class="absolute top-3 right-3">
                 <span id="stars-DevLense" class="status-pill warning font-bold">★ 5</span>
               </div>
-              <div class="my-auto text-center">
-                <div class="inline-block p-4 rounded-2xl bg-purple-950/60 border border-purple-500/40 text-3xl shadow-[0_0_30px_rgba(139,92,246,0.3)]">
-                  🔍 ⚡ 🛡️
-                </div>
-                <div class="text-xs font-mono text-purple-300 mt-2">DOCKER EPHEMERAL SANDBOX</div>
-              </div>
-              <div class="text-[11px] font-mono text-slate-400 text-center">--net=none • --read-only • 256MB Cap</div>
             </div>
 
             <!-- Card Content -->
@@ -507,10 +753,10 @@
           <!-- Bottom Actions -->
           <div class="p-6 pt-0 border-t border-slate-800/80 flex items-center justify-between gap-3 mt-4">
             <button onclick="openProjectModal('DevLense')" class="text-xs font-mono text-purple-400 hover:text-purple-300 underline underline-offset-4">
-              Specs & Diagram →
+              Gallery & Specs →
             </button>
             <div class="flex items-center gap-2">
-              <button onclick="navigator.clipboard.writeText('git clone https://github.com/Bit-manipulators/DevLense.git'); showToast('Git clone command copied!');" 
+              <button onclick="navigator.clipboard.writeText('git clone https://github.com/Bit-manipulators/DevLense.git'); showToast('Git clone command copied!'); audio.chime();" 
                       class="px-2.5 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 font-mono" title="Copy Clone Command">
                 📋 Clone
               </button>
@@ -575,10 +821,10 @@
           <!-- Bottom Actions -->
           <div class="p-6 pt-0 border-t border-slate-800/80 flex items-center justify-between gap-3 mt-4">
             <button onclick="openProjectModal('App_pulse')" class="text-xs font-mono text-emerald-400 hover:text-emerald-300 underline underline-offset-4">
-              Specs & Diagram →
+              7 Screens Tour →
             </button>
             <div class="flex items-center gap-2">
-              <button onclick="navigator.clipboard.writeText('git clone https://github.com/Bit-manipulators/App_pulse.git'); showToast('Git clone command copied!');" 
+              <button onclick="navigator.clipboard.writeText('git clone https://github.com/Bit-manipulators/App_pulse.git'); showToast('Git clone command copied!'); audio.chime();" 
                       class="px-2.5 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 font-mono" title="Copy Clone Command">
                 📋 Clone
               </button>
@@ -592,26 +838,117 @@
 
       </div>
 
-      <!-- Additional Ecosystem Repositories Bar -->
-      <div class="mt-12 glass-panel p-6 border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
-        <div class="flex items-center gap-4">
-          <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center text-2xl">
-            📦
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       6. INTERACTIVE ARCHITECTURE PIPELINE FLOW (NEW SECTION)
+       =================================================================== -->
+  <section id="pipeline" class="py-24 relative z-10 border-t border-slate-800 bg-[#070b14]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="text-xs font-mono text-cyan-400 tracking-widest uppercase mb-2">// DATA FLOW TOPOLOGY</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+          System Architecture Pipelines
+        </h2>
+        <p class="mt-4 text-slate-400 text-base">
+          Click between pipeline topologies to inspect how data packets, video textures, and security sandboxes are wired under the hood.
+        </p>
+
+        <!-- Pipeline Selector Tabs -->
+        <div class="mt-8 flex flex-wrap justify-center gap-2">
+          <button class="pipeline-tab active px-4 py-2 rounded-lg bg-slate-900 border border-cyan-400 text-xs font-mono text-cyan-400 transition-all" data-target="pipeline-dex">
+            🖥️ Open Android DeX (Video Pipeline)
+          </button>
+          <button class="pipeline-tab px-4 py-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 text-xs font-mono text-slate-400 hover:text-white transition-all" data-target="pipeline-devlens">
+            🛡️ DevLens (Zero-Trust Sandbox)
+          </button>
+          <button class="pipeline-tab px-4 py-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-slate-700 text-xs font-mono text-slate-400 hover:text-white transition-all" data-target="pipeline-apppulse">
+            ⚡ AppPulse (Deterministic Telemetry)
+          </button>
+        </div>
+      </div>
+
+      <!-- PIPELINE 1: DEX PIPELINE -->
+      <div id="pipeline-dex" class="pipeline-panel glass-panel p-6 sm:p-8 border-cyan-500/30">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+          <!-- Step 1 -->
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-cyan-500/30 relative">
+            <div class="text-[10px] font-mono text-cyan-400 mb-1">STAGE 01 // ANDROID DEVICE</div>
+            <h4 class="font-bold text-white text-sm mb-2">Android 10–16 Hardware</h4>
+            <p class="text-xs text-slate-400">Headless virtual display instantiated via ADB server socket tunnel (`--new-display`).</p>
           </div>
-          <div>
-            <h4 class="text-base font-bold text-white">Ecosystem Repositories & Community Hubs</h4>
-            <p class="text-xs text-slate-400 mt-0.5">Explore our companion portal, security standards, and contribution frameworks.</p>
+          <!-- Step 2 -->
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-cyan-500/30 relative">
+            <div class="text-[10px] font-mono text-cyan-400 mb-1">STAGE 02 // TUNNELING</div>
+            <h4 class="font-bold text-white text-sm mb-2">Scrcpy H.264 Pipe</h4>
+            <p class="text-xs text-slate-400">Raw video bytes piped through local Unix sockets without intermediary file writes.</p>
+          </div>
+          <!-- Step 3 -->
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-cyan-500/30 relative">
+            <div class="text-[10px] font-mono text-cyan-400 mb-1">STAGE 03 // C++ DECODER</div>
+            <h4 class="font-bold text-white text-sm mb-2">FFmpeg GPU Texture</h4>
+            <p class="text-xs text-slate-400">Hardware-accelerated in-process texture decoding yielding glass-to-glass latency of &lt;15ms.</p>
+          </div>
+          <!-- Step 4 -->
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-cyan-500/30 relative">
+            <div class="text-[10px] font-mono text-cyan-400 mb-1">STAGE 04 // COMPOSITOR</div>
+            <h4 class="font-bold text-white text-sm mb-2">Flutter &amp; GTK4 Shell</h4>
+            <p class="text-xs text-slate-400">8-way resizable window canvas, Z-index stacking, Wayland/X11 mouse &amp; keyboard passthrough.</p>
           </div>
         </div>
-        <div class="flex flex-wrap items-center gap-3">
-          <a href="https://github.com/Bit-manipulators/open-android-dex-website" target="_blank" rel="noopener noreferrer" 
-             class="px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-slate-300 hover:text-cyan-300 transition-colors">
-            🌐 open-android-dex-website ↗
-          </a>
-          <a href="https://github.com/Bit-manipulators/.github" target="_blank" rel="noopener noreferrer" 
-             class="px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-slate-300 hover:text-cyan-300 transition-colors">
-            🛡️ .github Security & Guidelines ↗
-          </a>
+      </div>
+
+      <!-- PIPELINE 2: DEVLENS PIPELINE -->
+      <div id="pipeline-devlens" class="pipeline-panel glass-panel p-6 sm:p-8 border-purple-500/30" style="display:none;">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-purple-500/30">
+            <div class="text-[10px] font-mono text-purple-400 mb-1">STAGE 01 // SENSORY INPUT</div>
+            <h4 class="font-bold text-white text-sm mb-2">In-Memory Camera OCR</h4>
+            <p class="text-xs text-slate-400">Live photograph digitized directly in memory buffers. Zero raw pixel images saved to disk.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-purple-500/30">
+            <div class="text-[10px] font-mono text-purple-400 mb-1">STAGE 02 // PARSER</div>
+            <h4 class="font-bold text-white text-sm mb-2">Static AST Heuristics</h4>
+            <p class="text-xs text-slate-400">Sub-second AST analysis for syntax, null pointer, and memory bounds across 4 languages.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-purple-500/30">
+            <div class="text-[10px] font-mono text-purple-400 mb-1">STAGE 03 // SANDBOX</div>
+            <h4 class="font-bold text-white text-sm mb-2">Ephemeral Micro-Container</h4>
+            <p class="text-xs text-slate-400">Executed with `--net=none`, read-only rootfs, dropped capabilities, and 256MB ceiling.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-purple-500/30">
+            <div class="text-[10px] font-mono text-purple-400 mb-1">STAGE 04 // VERIFICATION</div>
+            <h4 class="font-bold text-white text-sm mb-2">1-Tap Diff Repair</h4>
+            <p class="text-xs text-slate-400">Verified repair patch injected into synchronized mobile line editor with one-tap confirmation.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PIPELINE 3: APPPULSE PIPELINE -->
+      <div id="pipeline-apppulse" class="pipeline-panel glass-panel p-6 sm:p-8 border-emerald-500/30" style="display:none;">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative">
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-emerald-500/30">
+            <div class="text-[10px] font-mono text-emerald-400 mb-1">STAGE 01 // TELEMETRY</div>
+            <h4 class="font-bold text-white text-sm mb-2">Hardware Telemetry</h4>
+            <p class="text-xs text-slate-400">Local OS queries for RAM, flash wear, and app manifests with strictly 0 bytes network egress.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-emerald-500/30">
+            <div class="text-[10px] font-mono text-emerald-400 mb-1">STAGE 02 // AUDITING</div>
+            <h4 class="font-bold text-white text-sm mb-2">Permission Scanner</h4>
+            <p class="text-xs text-slate-400">Scans Camera, Mic, Background Location, and detects suspicious stealth or stalkerware packages.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-emerald-500/30">
+            <div class="text-[10px] font-mono text-emerald-400 mb-1">STAGE 03 // FORMULAS</div>
+            <h4 class="font-bold text-white text-sm mb-2">Deterministic Scoring</h4>
+            <p class="text-xs text-slate-400">Mathematical scoring from 0 to 100 with root cause explanations rather than fake animations.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-emerald-500/30">
+            <div class="text-[10px] font-mono text-emerald-400 mb-1">STAGE 04 // REMEDIATION</div>
+            <h4 class="font-bold text-white text-sm mb-2">Non-Destructive Action</h4>
+            <p class="text-xs text-slate-400">Direct shortcuts to native Android system sheets without disruptive task killing.</p>
+          </div>
         </div>
       </div>
 
@@ -619,7 +956,7 @@
   </section>
 
   <!-- ===================================================================
-       5. INTERACTIVE TERMINAL CLI SIMULATOR
+       7. INTERACTIVE TERMINAL CLI SIMULATOR
        =================================================================== -->
   <section id="terminal" class="py-24 relative z-10 border-t border-slate-800 bg-[#080c16]">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -627,7 +964,7 @@
       <div class="text-center max-w-3xl mx-auto mb-10">
         <div class="text-xs font-mono text-emerald-400 tracking-widest uppercase mb-2">// INTERACTIVE CONSOLE</div>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
-          Bit Manipulators Terminal CLI
+          Bit Manipulators Web CLI Terminal
         </h2>
         <p class="mt-3 text-slate-400 text-sm sm:text-base">
           Directly query our systems, trigger simulated diagnostic scans, and inspect low-level architectures from the browser.
@@ -641,6 +978,7 @@
           <button class="cmd-chip px-3 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-xs font-mono text-cyan-300 hover:border-cyan-400 transition-all" data-cmd="apppulse --telemetry">apppulse --telemetry</button>
           <button class="cmd-chip px-3 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-xs font-mono text-cyan-300 hover:border-cyan-400 transition-all" data-cmd="team">team</button>
           <button class="cmd-chip px-3 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-xs font-mono text-cyan-300 hover:border-cyan-400 transition-all" data-cmd="stack">stack</button>
+          <button class="cmd-chip px-3 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-xs font-mono text-cyan-300 hover:border-cyan-400 transition-all" data-cmd="audio">audio (toggle sound)</button>
           <button class="cmd-chip px-3 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-xs font-mono text-cyan-300 hover:border-cyan-400 transition-all" data-cmd="matrix">matrix</button>
           <button class="cmd-chip px-3 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-xs font-mono text-slate-400 hover:text-white transition-all" data-cmd="clear">clear</button>
         </div>
@@ -680,195 +1018,6 @@
   </section>
 
   <!-- ===================================================================
-       6. PHILOSOPHY & ARCHITECTURAL COMPARISON
-       =================================================================== -->
-  <section id="architecture" class="py-24 relative z-10 border-t border-slate-800 bg-[#07090e]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <div class="text-xs font-mono text-cyan-400 tracking-widest uppercase mb-2">// RADICAL TRANSPARENCY</div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
-          Commercial Gimmicks vs. First-Principles Engineering
-        </h2>
-        <p class="mt-4 text-slate-400 text-base">
-          Why we build clean-room systems: a direct comparison between the status quo and our deterministic engineering standard.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        
-        <!-- Column 1: Conventional Industry Scams -->
-        <div class="glass-panel p-8 border-rose-500/30 bg-rose-950/10 relative">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-lg bg-rose-900/40 border border-rose-500/40 flex items-center justify-center text-rose-400 text-lg font-bold">
-              ✕
-            </div>
-            <div>
-              <h3 class="text-lg font-bold text-rose-200">The Commercial Status Quo</h3>
-              <p class="text-xs font-mono text-rose-400/80">Deceptive Cleaners & Leaky Clouds</p>
-            </div>
-          </div>
-
-          <div class="space-y-4 text-sm text-slate-300">
-            <div class="p-3 rounded-lg bg-slate-900/60 border border-slate-800">
-              <strong class="text-rose-300 block mb-1">Fake RAM "Boost" Animations</strong>
-              Forces cold process kills that spike CPU cycles, drain battery faster, and cause immediate system thrashing upon restart.
-            </div>
-            <div class="p-3 rounded-lg bg-slate-900/60 border border-slate-800">
-              <strong class="text-rose-300 block mb-1">Covert Ad-Broker Telemetry</strong>
-              Silently transmits installed app inventories, WiFi SSIDs, and location data to remote tracking monopolies.
-            </div>
-            <div class="p-3 rounded-lg bg-slate-900/60 border border-slate-800">
-              <strong class="text-rose-300 block mb-1">Unsafe Cloud Code Uploads</strong>
-              Sends developer proprietary source code to cloud servers for simple linting and debugging without sandbox limits.
-            </div>
-            <div class="p-3 rounded-lg bg-slate-900/60 border border-slate-800">
-              <strong class="text-rose-300 block mb-1">Vendor-Locked Desktop Workstations</strong>
-              Restricted to single proprietary phone brands with closed binaries and non-portable drivers.
-            </div>
-          </div>
-        </div>
-
-        <!-- Column 2: Bit Manipulators Standard -->
-        <div class="glass-panel p-8 border-cyan-500/40 bg-cyan-950/10 relative shadow-[0_0_40px_rgba(0,240,255,0.1)]">
-          <div class="flex items-center gap-3 mb-6">
-            <div class="w-10 h-10 rounded-lg bg-cyan-900/40 border border-cyan-500/40 flex items-center justify-center text-cyan-400 text-lg font-bold">
-              ✓
-            </div>
-            <div>
-              <h3 class="text-lg font-bold text-cyan-200">The Bit Manipulators Standard</h3>
-              <p class="text-xs font-mono text-cyan-400/80">Deterministic, Private & First-Principles</p>
-            </div>
-          </div>
-
-          <div class="space-y-4 text-sm text-slate-200">
-            <div class="p-3 rounded-lg bg-slate-900/60 border border-cyan-500/20">
-              <strong class="text-cyan-300 block mb-1">Deterministic Mathematical Scoring</strong>
-              Points deducted based on proven formulas with full root cause explanation. Never kills background services destructively.
-            </div>
-            <div class="p-3 rounded-lg bg-slate-900/60 border border-cyan-500/20">
-              <strong class="text-cyan-300 block mb-1">100% On-Device Zero Egress</strong>
-              Telemetry and analysis remain in local encrypted SQLite / Room storage. Zero network packets dispatched.
-            </div>
-            <div class="p-3 rounded-lg bg-slate-900/60 border border-cyan-500/20">
-              <strong class="text-cyan-300 block mb-1">Zero-Trust Ephemeral Sandboxing</strong>
-              Code executes in local containers with <code class="text-cyan-400">--net=none</code>, read-only rootfs, and dropped Linux capabilities.
-            </div>
-            <div class="p-3 rounded-lg bg-slate-900/60 border border-cyan-500/20">
-              <strong class="text-cyan-300 block mb-1">Universal Clean-Room Workstation</strong>
-              Standard ADB protocol and FFmpeg pipelines running on any Linux machine with standard Android 10–16 devices.
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===================================================================
-       7. TECHNOLOGY MATRIX
-       =================================================================== -->
-  <section id="stack" class="py-24 relative z-10 border-t border-slate-800 bg-[#080d19]/60">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <div class="text-xs font-mono text-cyan-400 tracking-widest uppercase mb-2">// TECHNICAL SPECIFICATION</div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
-          Organization Technology Matrix
-        </h2>
-        <p class="mt-4 text-slate-400 text-base">
-          Our systems bridge low-level POSIX and Android kernel protocols with cutting-edge UI compositors and zero-trust sandboxes.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        
-        <!-- Category 1 -->
-        <div class="glass-panel p-6">
-          <div class="text-xs font-mono text-cyan-400 mb-2">01 // SYSTEMS & COMPOSITING</div>
-          <h4 class="text-lg font-bold text-white mb-4">Display & Compositing</h4>
-          <ul class="space-y-2 text-sm text-slate-300">
-            <li class="flex items-center gap-2"><span class="text-cyan-400">▹</span> Linux Wayland & X11 Compositors</li>
-            <li class="flex items-center gap-2"><span class="text-cyan-400">▹</span> Headless Scrcpy Stream Tunneling</li>
-            <li class="flex items-center gap-2"><span class="text-cyan-400">▹</span> In-Process 60 FPS FFmpeg Decoding</li>
-            <li class="flex items-center gap-2"><span class="text-cyan-400">▹</span> Android ADB & Virtual Displays</li>
-            <li class="flex items-center gap-2"><span class="text-cyan-400">▹</span> C++ Video Texture Shaders</li>
-          </ul>
-        </div>
-
-        <!-- Category 2 -->
-        <div class="glass-panel p-6">
-          <div class="text-xs font-mono text-purple-400 mb-2">02 // CLIENT & USER INTERFACE</div>
-          <h4 class="text-lg font-bold text-white mb-4">Mobile & Desktop UI</h4>
-          <ul class="space-y-2 text-sm text-slate-300">
-            <li class="flex items-center gap-2"><span class="text-purple-400">▹</span> Flutter Desktop (Linux X11/Wayland)</li>
-            <li class="flex items-center gap-2"><span class="text-purple-400">▹</span> Jetpack Compose & Material 3 (Android 15)</li>
-            <li class="flex items-center gap-2"><span class="text-purple-400">▹</span> React Native & Expo 51/54</li>
-            <li class="flex items-center gap-2"><span class="text-purple-400">▹</span> Python & GTK4 Ultra-lightweight Shell</li>
-            <li class="flex items-center gap-2"><span class="text-purple-400">▹</span> Synchronized Line-Number Code Editors</li>
-          </ul>
-        </div>
-
-        <!-- Category 3 -->
-        <div class="glass-panel p-6">
-          <div class="text-xs font-mono text-emerald-400 mb-2">03 // CORE LANGUAGES</div>
-          <h4 class="text-lg font-bold text-white mb-4">Polyglot Codebases</h4>
-          <ul class="space-y-2 text-sm text-slate-300">
-            <li class="flex items-center gap-2"><span class="text-emerald-400">▹</span> Dart (Compositor & Multi-Window Shell)</li>
-            <li class="flex items-center gap-2"><span class="text-emerald-400">▹</span> Kotlin 2.0.21 (Android 15 Systems & Coroutines)</li>
-            <li class="flex items-center gap-2"><span class="text-emerald-400">▹</span> Python 3.12+ (FastAPI, AST Static Parsers)</li>
-            <li class="flex items-center gap-2"><span class="text-emerald-400">▹</span> TypeScript 5.3+ (Client Presentation)</li>
-            <li class="flex items-center gap-2"><span class="text-emerald-400">▹</span> Modern C++ & C (FFmpeg Hardware Textures)</li>
-            <li class="flex items-center gap-2"><span class="text-emerald-400">▹</span> Shell / Bash (Automation & Dev Bootstrap)</li>
-          </ul>
-        </div>
-
-        <!-- Category 4 -->
-        <div class="glass-panel p-6">
-          <div class="text-xs font-mono text-amber-400 mb-2">04 // BACKEND & SANDBOXING</div>
-          <h4 class="text-lg font-bold text-white mb-4">Isolation & Runtimes</h4>
-          <ul class="space-y-2 text-sm text-slate-300">
-            <li class="flex items-center gap-2"><span class="text-amber-400">▹</span> Docker Micro-Sandboxes (--net=none)</li>
-            <li class="flex items-center gap-2"><span class="text-amber-400">▹</span> Linux cgroups & Dropped Capabilities</li>
-            <li class="flex items-center gap-2"><span class="text-amber-400">▹</span> FastAPI 0.115+ & Asynchronous Event Loops</li>
-            <li class="flex items-center gap-2"><span class="text-amber-400">▹</span> SQLite & Room On-Device Databases</li>
-            <li class="flex items-center gap-2"><span class="text-amber-400">▹</span> Local LLMs (Ollama) & Offline Fallbacks</li>
-          </ul>
-        </div>
-
-        <!-- Category 5 -->
-        <div class="glass-panel p-6">
-          <div class="text-xs font-mono text-blue-400 mb-2">05 // QUALITY & CI/CD</div>
-          <h4 class="text-lg font-bold text-white mb-4">Continuous Verification</h4>
-          <ul class="space-y-2 text-sm text-slate-300">
-            <li class="flex items-center gap-2"><span class="text-blue-400">▹</span> GitHub Actions Automated Workflows</li>
-            <li class="flex items-center gap-2"><span class="text-blue-400">▹</span> Detekt Static Code Analysis (Kotlin)</li>
-            <li class="flex items-center gap-2"><span class="text-blue-400">▹</span> Pytest & Vitest Unit Test Suites</li>
-            <li class="flex items-center gap-2"><span class="text-blue-400">▹</span> Pre-configured VS Code Dev Containers</li>
-            <li class="flex items-center gap-2"><span class="text-blue-400">▹</span> Hermetic CMake Build Pipelines</li>
-          </ul>
-        </div>
-
-        <!-- Category 6 -->
-        <div class="glass-panel p-6">
-          <div class="text-xs font-mono text-rose-400 mb-2">06 // LICENSING & GOVERNANCE</div>
-          <h4 class="text-lg font-bold text-white mb-4">Clean-Room Governance</h4>
-          <ul class="space-y-2 text-sm text-slate-300">
-            <li class="flex items-center gap-2"><span class="text-rose-400">▹</span> GNU General Public License v3.0 (GPL-3.0)</li>
-            <li class="flex items-center gap-2"><span class="text-rose-400">▹</span> Massachusetts Institute of Technology (MIT)</li>
-            <li class="flex items-center gap-2"><span class="text-rose-400">▹</span> Contributor Covenant Code of Conduct</li>
-            <li class="flex items-center gap-2"><span class="text-rose-400">▹</span> Transparent Security Policy (SECURITY.md)</li>
-            <li class="flex items-center gap-2"><span class="text-rose-400">▹</span> 100% Free & Open Source Software (FOSS)</li>
-          </ul>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===================================================================
        8. MAINTAINERS & LEADERSHIP TEAM
        =================================================================== -->
   <section id="team" class="py-24 relative z-10 border-t border-slate-800 bg-[#07090e]">
@@ -877,7 +1026,7 @@
       <div class="text-center max-w-3xl mx-auto mb-16">
         <div class="text-xs font-mono text-cyan-400 tracking-widest uppercase mb-2">// CORE ARCHITECTS</div>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
-          Maintainers & Core Team
+          Maintainers & Leadership
         </h2>
         <p class="mt-4 text-slate-400 text-base">
           Built by passionate systems engineers, reverse engineering enthusiasts, and kernel tinkerers based in India.
@@ -972,125 +1121,11 @@
 
       </div>
 
-      <!-- Contributor Callout -->
-      <div class="mt-12 text-center p-8 glass-panel border-cyan-500/20 max-w-3xl mx-auto">
-        <h4 class="text-xl font-bold text-white mb-2">Want to shape the future of mobile systems?</h4>
-        <p class="text-sm text-slate-300 mb-6">
-          We welcome systems programmers, reverse engineers, UI designers, and technical writers. Jump into our good first issues or open an architectural RFC.
-        </p>
-        <div class="flex flex-wrap justify-center gap-3">
-          <a href="https://github.com/Bit-manipulators/open-android-dex/blob/main/docs/GOOD_FIRST_ISSUES.md" target="_blank" rel="noopener noreferrer" 
-             class="btn-cyber-primary text-xs font-mono">
-            Browse Good First Issues →
-          </a>
-          <a href="https://github.com/Bit-manipulators/.github/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" 
-             class="btn-cyber-secondary text-xs font-mono">
-            Read Contributing Guide
-          </a>
-        </div>
-      </div>
-
     </div>
   </section>
 
   <!-- ===================================================================
-       9. OPEN GOVERNANCE & COMMUNITY GUIDELINES
-       =================================================================== -->
-  <section id="community" class="py-24 relative z-10 border-t border-slate-800 bg-[#080d19]/60">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-3xl mx-auto mb-16">
-        <div class="text-xs font-mono text-cyan-400 tracking-widest uppercase mb-2">// COMMUNITY & GOVERNANCE</div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
-          Open Source Ethics & Standards
-        </h2>
-        <p class="mt-4 text-slate-400 text-base">
-          Our projects strictly abide by open-source ethics, respectful communication, and responsible security disclosures.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-        
-        <div class="glass-panel p-6">
-          <div class="w-10 h-10 rounded-lg bg-blue-950 border border-blue-500/40 flex items-center justify-center text-blue-400 text-lg font-bold mb-4">
-            🤝
-          </div>
-          <h4 class="text-base font-bold text-white mb-2">Code of Conduct</h4>
-          <p class="text-xs text-slate-300 leading-relaxed mb-4">
-            We foster an open, welcoming, and harassment-free community. All participants agree to abide by our standard Contributor Covenant.
-          </p>
-          <a href="https://github.com/Bit-manipulators/.github/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-cyan-400 hover:text-cyan-300">
-            Read CODE_OF_CONDUCT.md →
-          </a>
-        </div>
-
-        <div class="glass-panel p-6">
-          <div class="w-10 h-10 rounded-lg bg-emerald-950 border border-emerald-500/40 flex items-center justify-center text-emerald-400 text-lg font-bold mb-4">
-            🛡️
-          </div>
-          <h4 class="text-base font-bold text-white mb-2">Responsible Security</h4>
-          <p class="text-xs text-slate-300 leading-relaxed mb-4">
-            Found a vulnerability? We take zero-trust security seriously and commit to rapid remediation via responsible private disclosure.
-          </p>
-          <a href="https://github.com/Bit-manipulators/.github/blob/main/SECURITY.md" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-cyan-400 hover:text-cyan-300">
-            Read SECURITY.md Policy →
-          </a>
-        </div>
-
-        <div class="glass-panel p-6">
-          <div class="w-10 h-10 rounded-lg bg-purple-950 border border-purple-500/40 flex items-center justify-center text-purple-400 text-lg font-bold mb-4">
-            📜
-          </div>
-          <h4 class="text-base font-bold text-white mb-2">Clean-Room Licensing</h4>
-          <p class="text-xs text-slate-300 leading-relaxed mb-4">
-            All code is released under transparent, battle-tested open licenses (GPLv3 for system compositors, MIT for sandboxes and mobile tools).
-          </p>
-          <a href="https://github.com/Bit-manipulators/.github/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-cyan-400 hover:text-cyan-300">
-            View Licensing Terms →
-          </a>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===================================================================
-       10. QUICK START CODE SANDBOX
-       =================================================================== -->
-  <section class="py-20 relative z-10 border-t border-slate-800 bg-[#07090e]">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="glass-panel p-6 sm:p-8 border-cyan-500/30">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-          <div>
-            <div class="text-xs font-mono text-cyan-400">QUICK SETUP</div>
-            <h3 class="text-xl font-bold text-white">Get Started with Bit Manipulators</h3>
-          </div>
-          <div class="text-xs font-mono text-slate-400">Linux • macOS • Android</div>
-        </div>
-
-        <div class="bg-slate-950 rounded-xl p-4 border border-slate-800 relative font-mono text-xs text-slate-200 overflow-x-auto">
-          <div class="text-slate-500 mb-2"># Clone Open Android DeX & Run Bootstrap Check</div>
-          <div class="text-cyan-400">$ git clone https://github.com/Bit-manipulators/open-android-dex.git</div>
-          <div class="text-cyan-400">$ cd open-android-dex &amp;&amp; ./scripts/dev_bootstrap.sh --check-deps</div>
-          <div class="text-slate-500 my-2"># Check connected Android device via ADB</div>
-          <div class="text-purple-400">$ adb devices -l</div>
-          <div class="text-slate-500 my-2"># Launch Flutter Compositor Workspace</div>
-          <div class="text-emerald-400">$ flutter run -d linux</div>
-
-          <button onclick="navigator.clipboard.writeText('git clone https://github.com/Bit-manipulators/open-android-dex.git\ncd open-android-dex && ./scripts/dev_bootstrap.sh --check-deps\nadb devices -l\nflutter run -d linux'); showToast('Setup commands copied!');" 
-                  class="absolute top-4 right-4 px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-mono border border-slate-700 flex items-center gap-1.5">
-            <span>📋</span> Copy Script
-          </button>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===================================================================
-       11. PROJECT DETAIL MODAL (LIGHTBOX)
+       9. PROJECT DETAIL MODAL (LIGHTBOX WITH GALLERY)
        =================================================================== -->
   <div id="projectModal" class="modal-overlay" role="dialog" aria-modal="true">
     <div class="modal-content p-6 sm:p-8">
@@ -1111,7 +1146,7 @@
   </div>
 
   <!-- ===================================================================
-       12. FOOTER
+       10. FOOTER
        =================================================================== -->
   <footer class="py-16 relative z-10 border-t border-cyan-500/20 bg-[#05070c]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

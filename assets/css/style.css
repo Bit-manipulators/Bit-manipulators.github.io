@@ -19,6 +19,9 @@
   --accent-amber: #f59e0b;
   --accent-rose: #f43f5e;
 
+  --theme-accent: #00f0ff;
+  --theme-glow: rgba(0, 240, 255, 0.35);
+
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
@@ -51,7 +54,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbars */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -65,10 +68,9 @@ body {
   border: 1px solid rgba(56, 189, 248, 0.2);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #38bdf8;
+  background: var(--theme-accent);
 }
 
-/* Monospace Utilities */
 .font-mono {
   font-family: var(--font-mono);
 }
@@ -84,8 +86,8 @@ body {
 }
 
 .glass-panel:hover {
-  border-color: var(--border-card-hover);
-  box-shadow: 0 10px 30px -10px var(--accent-cyan-glow);
+  border-color: var(--theme-accent);
+  box-shadow: 0 10px 30px -10px var(--theme-glow);
 }
 
 /* Cyber Glow Buttons */
@@ -94,21 +96,21 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, #00f0ff 0%, #3b82f6 50%, #8b5cf6 100%);
+  background: linear-gradient(135deg, var(--theme-accent) 0%, #3b82f6 50%, var(--accent-purple) 100%);
   color: #05070c;
   font-weight: 600;
   padding: 0.75rem 1.75rem;
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 20px -2px var(--accent-cyan-glow);
+  box-shadow: 0 4px 20px -2px var(--theme-glow);
   transition: all 0.25s ease;
   text-decoration: none;
 }
 
 .btn-cyber-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px 0 var(--accent-cyan-glow);
+  box-shadow: 0 8px 30px 0 var(--theme-glow);
   filter: brightness(1.1);
 }
 
@@ -130,19 +132,12 @@ body {
 
 .btn-cyber-secondary:hover {
   background: rgba(30, 41, 59, 0.9);
-  border-color: var(--accent-cyan);
-  color: var(--accent-cyan);
+  border-color: var(--theme-accent);
+  color: var(--theme-accent);
   transform: translateY(-2px);
 }
 
-/* Background Cyber Grid & Vignette */
-.cyber-grid {
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
+/* Radial Glows */
 .radial-glow {
   position: absolute;
   border-radius: 50%;
@@ -151,23 +146,9 @@ body {
   z-index: 0;
 }
 
-/* Floating Animation */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-/* Text Shimmer / Gradient */
+/* Text Shimmer / Gradients */
 .text-gradient-cyan {
-  background: linear-gradient(135deg, #ffffff 10%, #00f0ff 60%, #38bdf8 100%);
+  background: linear-gradient(135deg, #ffffff 10%, var(--theme-accent) 60%, #38bdf8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -178,19 +159,13 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-.text-gradient-brand {
-  background: linear-gradient(135deg, #00f0ff 0%, #38bdf8 45%, #a855f7 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 /* Terminal Simulator Styles */
 .terminal-window {
   background: #090d16;
   border: 1px solid rgba(56, 189, 248, 0.3);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(0, 240, 255, 0.15);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px var(--theme-glow);
 }
 
 .terminal-header {
@@ -228,7 +203,7 @@ body {
 }
 
 .terminal-prompt {
-  color: var(--accent-cyan);
+  color: var(--theme-accent);
 }
 
 .terminal-command {
@@ -259,22 +234,7 @@ body {
   flex: 1;
 }
 
-/* Caret blinking */
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-.caret-blink {
-  display: inline-block;
-  width: 8px;
-  height: 15px;
-  background-color: var(--accent-cyan);
-  animation: blink 1s step-end infinite;
-  vertical-align: middle;
-}
-
-/* Toast Notification */
+/* Toast Notifications */
 .toast-container {
   position: fixed;
   bottom: 2rem;
@@ -288,12 +248,12 @@ body {
 
 .toast {
   background: rgba(15, 23, 42, 0.95);
-  border: 1px solid var(--accent-cyan);
+  border: 1px solid var(--theme-accent);
   color: #f8fafc;
   padding: 0.75rem 1.25rem;
   border-radius: 10px;
   backdrop-filter: blur(12px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px var(--accent-cyan-glow);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px var(--theme-glow);
   font-family: var(--font-mono);
   font-size: 0.85rem;
   display: flex;
@@ -314,8 +274,8 @@ body {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(4, 7, 13, 0.85);
-  backdrop-filter: blur(8px);
+  background: rgba(4, 7, 13, 0.88);
+  backdrop-filter: blur(10px);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -335,11 +295,11 @@ body {
   background: #0d1322;
   border: 1px solid rgba(56, 189, 248, 0.35);
   border-radius: 20px;
-  max-width: 900px;
+  max-width: 960px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 40px rgba(0, 240, 255, 0.2);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 40px var(--theme-glow);
   transform: scale(0.95);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -381,35 +341,6 @@ body {
   }
 }
 
-/* Code Snippet Container */
-.code-box {
-  background: #060911;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
-  padding: 0.75rem 1rem;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: #38bdf8;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.copy-btn {
-  background: transparent;
-  border: none;
-  color: #94a3b8;
-  cursor: pointer;
-  padding: 4px;
-  border-radius: 4px;
-  transition: all 0.2s ease;
-}
-
-.copy-btn:hover {
-  color: var(--accent-cyan);
-  background: rgba(255, 255, 255, 0.05);
-}
-
 /* Status Matrix Pill */
 .status-pill {
   display: inline-flex;
@@ -438,4 +369,194 @@ body {
   background: rgba(56, 189, 248, 0.15);
   color: #38bdf8;
   border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+/* Code Snippet Container */
+.code-box {
+  background: #060911;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.copy-btn {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+  color: var(--theme-accent);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ==========================================================================
+   NEW ADVANCED COMPONENTS:
+   1. Interactive DeX Mini Desktop Simulator
+   2. DevLens Heuristic Playground
+   3. AppPulse Vitality Calculator
+   4. Architecture Pipeline SVG Flow
+   ========================================================================== */
+
+/* DeX Desktop Simulator Canvas */
+.dex-simulator {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  background: #080c16;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px var(--theme-glow);
+  user-select: none;
+}
+
+.dex-sim-wallpaper {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 50% 30%, rgba(0, 240, 255, 0.08) 0%, transparent 60%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 30px 30px, 30px 30px;
+}
+
+.dex-sim-window {
+  position: absolute;
+  background: rgba(13, 19, 34, 0.95);
+  border: 1px solid rgba(0, 240, 255, 0.5);
+  border-radius: 10px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 240, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  cursor: default;
+  transition: box-shadow 0.2s ease;
+}
+
+.dex-sim-window.active {
+  border-color: var(--theme-accent);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 25px var(--theme-glow);
+}
+
+.dex-sim-titlebar {
+  background: #0f182c;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: grab;
+}
+
+.dex-sim-titlebar:active {
+  cursor: grabbing;
+}
+
+.dex-sim-taskbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: rgba(10, 15, 27, 0.95);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(56, 189, 248, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  z-index: 50;
+}
+
+.dex-sim-drawer {
+  position: absolute;
+  bottom: 54px;
+  left: 12px;
+  width: 280px;
+  background: #0d1424;
+  border: 1px solid var(--theme-accent);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9), 0 0 25px var(--theme-glow);
+  z-index: 60;
+  display: none;
+}
+
+.dex-sim-drawer.show {
+  display: block;
+  animation: slideUp 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Sliders for Vitality Calculator */
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: #1e293b;
+  height: 6px;
+  border-radius: 3px;
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--theme-accent);
+  cursor: pointer;
+  box-shadow: 0 0 10px var(--theme-accent);
+  transition: transform 0.1s ease;
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+/* Pipeline SVG Flow */
+.pulse-flow {
+  stroke-dasharray: 8;
+  animation: dash 1.5s linear infinite;
+}
+
+@keyframes dash {
+  from { stroke-dashoffset: 16; }
+  to { stroke-dashoffset: 0; }
+}
+
+/* Audio Sound Waves Toggle */
+.sound-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  background: #0d1322;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sound-toggle-btn:hover, .sound-toggle-btn.active {
+  border-color: var(--theme-accent);
+  color: var(--theme-accent);
+  box-shadow: 0 0 12px var(--theme-glow);
 }
