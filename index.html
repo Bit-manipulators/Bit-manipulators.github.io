@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bit Manipulators — Bending Bits, Unleashing Mobile Hardware & Zero-Trust Systems</title>
+  
+  <!-- SEO & Social Meta -->
+  <meta name="description" content="Official website of Bit Manipulators — an open-source engineering collective bridging mobile computing with desktop workstations, crafting zero-trust sandboxes, and engineering deterministic Android systems." />
+  <meta name="keywords" content="Bit Manipulators, Open Android DeX, DevLens, AppPulse, Android Desktop, Wayland, X11, Flutter Compositor, Zero-Trust Sandbox, Privacy Android, Open Source" />
+  <meta name="author" content="Bit Manipulators Collective" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bit-manipulators.github.io/" />
+  <meta property="og:title" content="Bit Manipulators — Open Source Systems Collective" />
+  <meta property="og:description" content="Bending Bits • Unleashing Mobile Hardware • Engineering Zero-Trust Systems" />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/327424915?v=4" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Bit Manipulators — Open Source Systems Collective" />
+  <meta name="twitter:description" content="Bending Bits • Unleashing Mobile Hardware • Engineering Zero-Trust Systems" />
+  <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/327424915?v=4" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/images/org-logo.png" />
+
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            cyberDark: '#07090e',
+            cyberCard: 'rgba(15, 23, 42, 0.75)',
+            cyanGlow: '#00f0ff',
+            purpleGlow: '#8b5cf6',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Core Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Bit Manipulators",
+    "url": "https://bit-manipulators.github.io",
+    "logo": "https://avatars.githubusercontent.com/u/327424915?v=4",
+    "description": "Bending bits, unleashing mobile hardware, and engineering zero-trust systems.",
+    "sameAs": [
+      "https://github.com/Bit-manipulators"
+    ]
+  }
+  </script>
+</head>
+<body class="bg-[#07090e] text-slate-100 min-h-screen selection:bg-cyan-500/30 selection:text-cyan-300 relative">
+
+  <!-- Interactive Cyber Canvas Background -->
+  <canvas id="cyberCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+
+  <!-- Ambient Radial Glows -->
+  <div class="radial-glow top-0 left-1/4 w-[600px] h-[600px] bg-cyan-500/10 -translate-y-1/2"></div>
+  <div class="radial-glow top-1/3 right-10 w-[500px] h-[500px] bg-purple-600/10"></div>
+  <div class="radial-glow bottom-20 left-10 w-[600px] h-[600px] bg-blue-600/10"></div>
+
+  <!-- ===================================================================
+       1. NAVIGATION BAR
+       =================================================================== -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#07090e]/85 border-b border-cyan-500/20 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo & Brand -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="relative w-11 h-11 rounded-xl p-[2px] bg-gradient-to-tr from-cyan-400 via-blue-500 to-purple-600 group-hover:shadow-[0_0_20px_rgba(0,240,255,0.6)] transition-all">
+          <img src="assets/images/org-logo.png" alt="Bit Manipulators Logo" class="w-full h-full rounded-[10px] object-cover bg-slate-900" />
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-extrabold text-lg tracking-wider text-white group-hover:text-cyan-400 transition-colors">
+              BIT MANIPULATORS
+            </span>
+            <span class="status-pill success hidden sm:inline-flex text-[10px] py-0.5">ONLINE</span>
+          </div>
+          <p class="text-[11px] font-mono text-slate-400 tracking-tight hidden sm:block">
+            Systems • Hardware • Zero-Trust
+          </p>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-300">
+        <a href="#pillars" class="hover:text-cyan-400 transition-colors">Pillars</a>
+        <a href="#projects" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+          Projects
+          <span class="px-1.5 py-0.5 text-[10px] font-mono rounded bg-cyan-950 border border-cyan-500/40 text-cyan-300">3 CORE</span>
+        </a>
+        <a href="#architecture" class="hover:text-cyan-400 transition-colors">Architecture</a>
+        <a href="#terminal" class="hover:text-cyan-400 transition-colors flex items-center gap-1 text-cyan-400/90 font-mono text-xs">
+          <span class="text-emerald-400">>_</span> Terminal
+        </a>
+        <a href="#stack" class="hover:text-cyan-400 transition-colors">Tech Matrix</a>
+        <a href="#team" class="hover:text-cyan-400 transition-colors">Team</a>
+        <a href="#community" class="hover:text-cyan-400 transition-colors">Community</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3">
+        <!-- Live GitHub Org Badge -->
+        <a href="https://github.com/Bit-manipulators" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-slate-900/90 border border-slate-700/80 hover:border-cyan-400/60 text-xs font-mono text-slate-200 hover:text-cyan-300 transition-all shadow-sm">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+          </svg>
+          <span class="hidden sm:inline">GitHub</span>
+          <span class="px-1.5 py-0.2 rounded bg-cyan-950/80 text-cyan-400 text-[11px] font-bold border border-cyan-500/30 gh-stars-count">29+</span>
+        </a>
+
+        <!-- Mobile Menu Hamburger -->
+        <button id="mobileMenuToggle" class="md:hidden p-2 rounded-lg bg-slate-900 border border-slate-700 text-slate-300 hover:text-cyan-400 focus:outline-none" aria-label="Toggle Navigation">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-[#0a0f1d] border-b border-cyan-500/20 px-6 py-4 flex flex-col gap-4 text-sm font-medium">
+      <a href="#pillars" class="hover:text-cyan-400">Pillars</a>
+      <a href="#projects" class="hover:text-cyan-400 flex items-center justify-between">
+        Projects <span class="px-1.5 py-0.5 text-[10px] font-mono rounded bg-cyan-950 border border-cyan-500/40 text-cyan-300">3 CORE</span>
+      </a>
+      <a href="#architecture" class="hover:text-cyan-400">Architecture</a>
+      <a href="#terminal" class="hover:text-cyan-400 text-cyan-400 font-mono">>_ Interactive CLI</a>
+      <a href="#stack" class="hover:text-cyan-400">Tech Matrix</a>
+      <a href="#team" class="hover:text-cyan-400">Maintainers</a>
+      <a href="#community" class="hover:text-cyan-400">Community</a>
+    </div>
+  </header>
+
+  <!-- ===================================================================
+       2. HERO SECTION
+       =================================================================== -->
+  <section class="relative pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      
+      <!-- Eyebrow Pill -->
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-900/90 border border-cyan-500/30 text-xs font-mono text-cyan-300 shadow-[0_0_20px_rgba(0,240,255,0.2)] mb-8">
+        <span class="pulse-indicator"></span>
+        <span class="tracking-wide">OPEN-SOURCE ENGINEERING COLLECTIVE • INDIA</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight max-w-5xl mx-auto leading-tight md:leading-[1.15]">
+        <span class="text-white">Bending Bits.</span><br/>
+        <span class="text-gradient-cyan">Unleashing Mobile Hardware.</span><br/>
+        <span class="text-gradient-purple">Engineering Zero-Trust Systems.</span>
+      </h1>
+
+      <!-- Subtitle Manifesto -->
+      <p class="mt-8 text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+        We bridge everyday mobile devices into high-performance desktop workstations, craft zero-trust developer sandboxes with instant on-device AI diagnostics, and engineer deterministic Android systems where <span class="text-cyan-400 font-semibold underline decoration-cyan-500/50 underline-offset-4">100% of telemetry remains strictly on-device</span>.
+      </p>
+
+      <!-- Primary Action Buttons -->
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <a href="#projects" class="btn-cyber-primary text-sm sm:text-base">
+          <span>Explore Featured Systems</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </a>
+
+        <a href="#terminal" class="btn-cyber-secondary font-mono text-sm sm:text-base">
+          <span class="text-emerald-400">>_</span>
+          <span>Launch Web Terminal CLI</span>
+        </a>
+
+        <a href="https://github.com/Bit-manipulators" target="_blank" rel="noopener noreferrer" 
+           class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-900/60 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-700/60 transition-all text-sm font-medium">
+          <span>GitHub Organization</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Real-time Metrics / Telemetry Bar -->
+      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto text-left">
+        <div class="glass-panel p-5">
+          <div class="text-xs font-mono text-cyan-400 mb-1 flex items-center justify-between">
+            <span>CORE SYSTEMS</span>
+            <span class="text-slate-500">SYS_01</span>
+          </div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-white">3 Flagships</div>
+          <div class="text-xs text-slate-400 mt-1">Linux DeX, DevLens & AppPulse</div>
+        </div>
+
+        <div class="glass-panel p-5">
+          <div class="text-xs font-mono text-purple-400 mb-1 flex items-center justify-between">
+            <span>PROVENANCE</span>
+            <span class="text-slate-500">LIC_02</span>
+          </div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-white">100% Clean</div>
+          <div class="text-xs text-slate-400 mt-1">GPLv3 & MIT Open Source</div>
+        </div>
+
+        <div class="glass-panel p-5">
+          <div class="text-xs font-mono text-emerald-400 mb-1 flex items-center justify-between">
+            <span>PRIVACY EGRESS</span>
+            <span class="text-slate-500">NET_03</span>
+          </div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-white">0% Leaked</div>
+          <div class="text-xs text-slate-400 mt-1">Local SQLite & --net=none Sandbox</div>
+        </div>
+
+        <div class="glass-panel p-5">
+          <div class="text-xs font-mono text-amber-400 mb-1 flex items-center justify-between">
+            <span>FRAME PIPELINE</span>
+            <span class="text-slate-500">FPS_04</span>
+          </div>
+          <div class="text-2xl sm:text-3xl font-extrabold text-white">&lt; 15ms</div>
+          <div class="text-xs text-slate-400 mt-1">60 FPS In-Process FFmpeg Texture</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       3. CORE ENGINEERING PILLARS
+       =================================================================== -->
+  <section id="pillars" class="py-24 relative z-10 border-t border-slate-800/80 bg-[#080d19]/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-xs font-mono text-cyan-400 tracking-widest uppercase mb-2">// ARCHITECTURAL PILLARS</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+          Engineered From First Principles
+        </h2>
+        <p class="mt-4 text-slate-400 text-base">
+          We reject gimmicky "one-click cleaner" scams, leaky cloud execution wrappers, and vendor-locked walled gardens. Every Bit Manipulators project is designed around deterministic science and zero-compromise privacy.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Pillar 1 -->
+        <div class="glass-panel p-8 relative group overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition-all"></div>
+          <div class="w-12 h-12 rounded-xl bg-cyan-950/80 border border-cyan-500/40 flex items-center justify-center text-cyan-400 text-xl font-bold mb-6">
+            🖥️
+          </div>
+          <div class="text-xs font-mono text-cyan-400 mb-1">CONVERGENCE LAYER</div>
+          <h3 class="text-xl font-bold text-white mb-3">Mobile-to-Desktop Convergence</h3>
+          <p class="text-slate-300 text-sm leading-relaxed mb-4">
+            Transforms everyday Android smartphones and tablets into full multi-window Linux desktop workstations under Wayland & X11. Features dynamic 8-way window resizing, Z-index layer ordering, and direct GPU in-process 60 FPS FFmpeg texture streaming over headless ADB pipes.
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-400">
+            <span class="status-pill info">Wayland / X11</span>
+            <span class="status-pill info">Flutter Compositor</span>
+            <span class="status-pill info">GTK4 Shell</span>
+            <span class="status-pill info">ADB Protocol</span>
+          </div>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="glass-panel p-8 relative group overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-all"></div>
+          <div class="w-12 h-12 rounded-xl bg-purple-950/80 border border-purple-500/40 flex items-center justify-center text-purple-400 text-xl font-bold mb-6">
+            🛡️
+          </div>
+          <div class="text-xs font-mono text-purple-400 mb-1">SECURITY PERIMETER</div>
+          <h3 class="text-xl font-bold text-white mb-3">Zero-Trust Developer Tooling</h3>
+          <p class="text-slate-300 text-sm leading-relaxed mb-4">
+            Empowers mobile engineers to capture and analyze code from screens or paper using in-memory camera OCR without writing raw pixels to disk. Executes untrusted user scripts in ephemeral Docker micro-sandboxes hardened with <code class="text-purple-300">--net=none</code>, read-only rootfs, and dropped Linux kernel capabilities.
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-400">
+            <span class="status-pill info">Ephemeral Sandboxes</span>
+            <span class="status-pill info">In-Memory OCR</span>
+            <span class="status-pill info">Static Heuristics</span>
+            <span class="status-pill info">FastAPI 0.115+</span>
+          </div>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="glass-panel p-8 relative group overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl group-hover:bg-emerald-500/20 transition-all"></div>
+          <div class="w-12 h-12 rounded-xl bg-emerald-950/80 border border-emerald-500/40 flex items-center justify-center text-emerald-400 text-xl font-bold mb-6">
+            ⚡
+          </div>
+          <div class="text-xs font-mono text-emerald-400 mb-1">DEVICE VITALITY</div>
+          <h3 class="text-xl font-bold text-white mb-3">Deterministic Diagnostics & Privacy</h3>
+          <p class="text-slate-300 text-sm leading-relaxed mb-4">
+            Engineers system telemetry and device vitality managers where <b>100% of data remains on-device</b>. Transparent mathematical scoring formulas calculate app impact without deceptive cleaner scare tactics, background task killing, or covert ad broker telemetry harvesting.
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-400">
+            <span class="status-pill success">Zero Network Egress</span>
+            <span class="status-pill success">On-Device SQLite/Room</span>
+            <span class="status-pill success">Permission Auditing</span>
+            <span class="status-pill success">Android 15 (API 35)</span>
+          </div>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="glass-panel p-8 relative group overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl group-hover:bg-amber-500/20 transition-all"></div>
+          <div class="w-12 h-12 rounded-xl bg-amber-950/80 border border-amber-500/40 flex items-center justify-center text-amber-400 text-xl font-bold mb-6">
+            🔓
+          </div>
+          <div class="text-xs font-mono text-amber-400 mb-1">TRANSPARENCY</div>
+          <h3 class="text-xl font-bold text-white mb-3">Clean-Room Open Source</h3>
+          <p class="text-slate-300 text-sm leading-relaxed mb-4">
+            All codebases are authored from first principles using clean-room specifications, transparent licensing (GPL-3.0 and MIT), open protocols, and modular designs. We build tools that developers can inspect, audit, fork, and compile locally without proprietary black boxes.
+          </p>
+          <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-400">
+            <span class="status-pill warning">Clean-Room Specs</span>
+            <span class="status-pill warning">GPLv3 & MIT</span>
+            <span class="status-pill warning">No Vendor Lock-In</span>
+            <span class="status-pill warning">Automated CI/CD</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       4. FEATURED PRODUCTION ECOSYSTEM
+       =================================================================== -->
+  <section id="projects" class="py-24 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div>
+          <div class="text-xs font-mono text-cyan-400 tracking-widest uppercase mb-2">// PRODUCTION ECOSYSTEM</div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+            Featured Systems & Repositories
+          </h2>
+          <p class="mt-2 text-slate-400 max-w-xl text-sm sm:text-base">
+            Actively maintained open-source repositories pushing the boundaries of mobile operating systems, Linux desktops, and sandboxed AI.
+          </p>
+        </div>
+
+        <!-- Filter Buttons & Search -->
+        <div class="flex flex-col sm:flex-row gap-3">
+          <div class="relative">
+            <input type="text" id="projectSearch" placeholder="Search systems, tags..." 
+                   class="bg-slate-900/90 border border-slate-700 rounded-lg px-3.5 py-2 text-xs font-mono text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-400 w-full sm:w-48" />
+            <span class="absolute right-3 top-2.5 text-slate-500 text-xs">🔍</span>
+          </div>
+
+          <div class="flex flex-wrap gap-1.5 p-1 bg-slate-900/90 rounded-lg border border-slate-800">
+            <button class="filter-btn active px-3 py-1.5 text-xs font-mono rounded border border-cyan-400 text-cyan-400 transition-all" data-filter="all">All</button>
+            <button class="filter-btn px-3 py-1.5 text-xs font-mono rounded text-slate-400 hover:text-white transition-all" data-filter="systems">Systems</button>
+            <button class="filter-btn px-3 py-1.5 text-xs font-mono rounded text-slate-400 hover:text-white transition-all" data-filter="ai-devtools">AI & Sandbox</button>
+            <button class="filter-btn px-3 py-1.5 text-xs font-mono rounded text-slate-400 hover:text-white transition-all" data-filter="mobile">Android</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projects Grid -->
+      <div id="projectsGrid" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- CARD 1: OPEN ANDROID DEX -->
+        <div class="project-card glass-panel flex flex-col justify-between overflow-hidden border border-cyan-500/30 hover:border-cyan-400" data-category="systems">
+          <div>
+            <!-- Image Showcase -->
+            <div class="relative h-52 overflow-hidden bg-slate-950 group">
+              <img src="assets/images/dex-desktop.jpg" alt="Open Android DeX Desktop" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0d1322] via-transparent to-transparent"></div>
+              <div class="absolute top-3 left-3 flex gap-2">
+                <span class="status-pill success">GPL-3.0</span>
+                <span class="status-pill info">Linux Workstation</span>
+              </div>
+              <div class="absolute top-3 right-3">
+                <span id="stars-open-android-dex" class="status-pill warning font-bold">★ 25</span>
+              </div>
+            </div>
+
+            <!-- Card Content -->
+            <div class="p-6">
+              <div class="text-xs font-mono text-cyan-400 mb-1">FLAGSHIP 01 // WAYLAND & X11</div>
+              <h3 class="text-2xl font-bold text-white mb-2">Open Android DeX</h3>
+              <p class="text-slate-300 text-sm leading-relaxed mb-5">
+                Transforms Android smartphones into a multi-window desktop workstation under Linux. Features 8-way resizable floating windows, dynamic Z-ordering, interactive DeX taskbar, and in-process 60 FPS FFmpeg GPU textures via ADB pipes.
+              </p>
+
+              <!-- Feature Bullets -->
+              <div class="space-y-2 mb-6 text-xs text-slate-300">
+                <div class="flex items-center gap-2">
+                  <span class="text-cyan-400 font-bold">⚡</span>
+                  <span>Flutter Desktop Compositor + GTK4 fallback shell</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-cyan-400 font-bold">⚡</span>
+                  <span>Android API 29–36 (Android 10 through 16 ready)</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-cyan-400 font-bold">⚡</span>
+                  <span>Sub-15ms glass-to-glass latency with zero host bloat</span>
+                </div>
+              </div>
+
+              <!-- Tech Badges -->
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-800/80 text-cyan-300">Flutter Desktop</span>
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-800/80 text-cyan-300">GTK4</span>
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-800/80 text-cyan-300">FFmpeg</span>
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-800/80 text-cyan-300">Wayland / X11</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Actions -->
+          <div class="p-6 pt-0 border-t border-slate-800/80 flex items-center justify-between gap-3 mt-4">
+            <button onclick="openProjectModal('open-android-dex')" class="text-xs font-mono text-cyan-400 hover:text-cyan-300 underline underline-offset-4">
+              Specs & Diagram →
+            </button>
+            <div class="flex items-center gap-2">
+              <button onclick="navigator.clipboard.writeText('git clone https://github.com/Bit-manipulators/open-android-dex.git'); showToast('Git clone command copied!');" 
+                      class="px-2.5 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 font-mono" title="Copy Clone Command">
+                📋 Clone
+              </button>
+              <a href="https://github.com/Bit-manipulators/open-android-dex" target="_blank" rel="noopener noreferrer" 
+                 class="px-3 py-1.5 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 border border-cyan-500/40 text-xs font-mono font-semibold">
+                Repo ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 2: DEVLENS -->
+        <div class="project-card glass-panel flex flex-col justify-between overflow-hidden border border-purple-500/30 hover:border-purple-400" data-category="ai-devtools">
+          <div>
+            <!-- Banner / Header Graphic -->
+            <div class="relative h-52 overflow-hidden bg-[#0d1322] p-6 flex flex-col justify-between border-b border-purple-500/20">
+              <div class="flex justify-between items-start">
+                <div class="flex gap-2">
+                  <span class="status-pill warning">MIT License</span>
+                  <span class="status-pill info">Zero-Trust</span>
+                </div>
+                <span id="stars-DevLense" class="status-pill warning font-bold">★ 5</span>
+              </div>
+              <div class="my-auto text-center">
+                <div class="inline-block p-4 rounded-2xl bg-purple-950/60 border border-purple-500/40 text-3xl shadow-[0_0_30px_rgba(139,92,246,0.3)]">
+                  🔍 ⚡ 🛡️
+                </div>
+                <div class="text-xs font-mono text-purple-300 mt-2">DOCKER EPHEMERAL SANDBOX</div>
+              </div>
+              <div class="text-[11px] font-mono text-slate-400 text-center">--net=none • --read-only • 256MB Cap</div>
+            </div>
+
+            <!-- Card Content -->
+            <div class="p-6">
+              <div class="text-xs font-mono text-purple-400 mb-1">FLAGSHIP 02 // MOBILE AI DEBUGGER</div>
+              <h3 class="text-2xl font-bold text-white mb-2">DevLens</h3>
+              <p class="text-slate-300 text-sm leading-relaxed mb-5">
+                Intelligent on-the-go code debugger and zero-trust container sandbox. Photograph code with camera OCR, run multi-language static diagnostics (Python, JS, C++, Java), and safely test code in severed Docker sandboxes.
+              </p>
+
+              <!-- Feature Bullets -->
+              <div class="space-y-2 mb-6 text-xs text-slate-300">
+                <div class="flex items-center gap-2">
+                  <span class="text-purple-400 font-bold">⚡</span>
+                  <span>In-memory camera OCR without saving raw photo to disk</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-purple-400 font-bold">⚡</span>
+                  <span>Hardened Docker container with dropped Linux capabilities</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-purple-400 font-bold">⚡</span>
+                  <span>FastAPI 0.115+ backend with token-bucket rate limiting</span>
+                </div>
+              </div>
+
+              <!-- Tech Badges -->
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-800/80 text-purple-300">FastAPI</span>
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-800/80 text-purple-300">React Native</span>
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-800/80 text-purple-300">Docker</span>
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-800/80 text-purple-300">Python 3.12</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Actions -->
+          <div class="p-6 pt-0 border-t border-slate-800/80 flex items-center justify-between gap-3 mt-4">
+            <button onclick="openProjectModal('DevLense')" class="text-xs font-mono text-purple-400 hover:text-purple-300 underline underline-offset-4">
+              Specs & Diagram →
+            </button>
+            <div class="flex items-center gap-2">
+              <button onclick="navigator.clipboard.writeText('git clone https://github.com/Bit-manipulators/DevLense.git'); showToast('Git clone command copied!');" 
+                      class="px-2.5 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 font-mono" title="Copy Clone Command">
+                📋 Clone
+              </button>
+              <a href="https://github.com/Bit-manipulators/DevLense" target="_blank" rel="noopener noreferrer" 
+                 class="px-3 py-1.5 rounded-lg bg-purple-500/20 hover:bg-purple-500/30 text-purple-300 border border-purple-500/40 text-xs font-mono font-semibold">
+                Repo ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 3: APPPULSE -->
+        <div class="project-card glass-panel flex flex-col justify-between overflow-hidden border border-emerald-500/30 hover:border-emerald-400" data-category="mobile">
+          <div>
+            <!-- Banner / Header Graphic -->
+            <div class="relative h-52 overflow-hidden bg-slate-950 group">
+              <img src="assets/images/apppulse-dashboard.png" alt="AppPulse Dashboard" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#0d1322] via-transparent to-transparent"></div>
+              <div class="absolute top-3 left-3 flex gap-2">
+                <span class="status-pill warning">MIT License</span>
+                <span class="status-pill success">100% On-Device</span>
+              </div>
+              <div class="absolute top-3 right-3">
+                <span id="stars-App_pulse" class="status-pill warning font-bold">★ 4</span>
+              </div>
+            </div>
+
+            <!-- Card Content -->
+            <div class="p-6">
+              <div class="text-xs font-mono text-emerald-400 mb-1">FLAGSHIP 03 // ANDROID 15 VITALITY</div>
+              <h3 class="text-2xl font-bold text-white mb-2">AppPulse</h3>
+              <p class="text-slate-300 text-sm leading-relaxed mb-5">
+                Privacy-first, on-device Android 15 health & resource manager. Delivers reproducible mathematical scores for RAM, storage, and sensitive app permissions (Camera, Mic, Location) with strictly zero network egress.
+              </p>
+
+              <!-- Feature Bullets -->
+              <div class="space-y-2 mb-6 text-xs text-slate-300">
+                <div class="flex items-center gap-2">
+                  <span class="text-emerald-400 font-bold">⚡</span>
+                  <span>Mathematical formula scoring replacing fake cleaner scams</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-emerald-400 font-bold">⚡</span>
+                  <span>Stealth & stalkerware detection with non-destructive shortcuts</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-emerald-400 font-bold">⚡</span>
+                  <span>Jetpack Compose (Material 3) targeting Android 15 (API 35)</span>
+                </div>
+              </div>
+
+              <!-- Tech Badges -->
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-800/80 text-emerald-300">Kotlin 2.0</span>
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-800/80 text-emerald-300">Jetpack Compose</span>
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-800/80 text-emerald-300">Room SQLite</span>
+                <span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-800/80 text-emerald-300">Coroutines</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Actions -->
+          <div class="p-6 pt-0 border-t border-slate-800/80 flex items-center justify-between gap-3 mt-4">
+            <button onclick="openProjectModal('App_pulse')" class="text-xs font-mono text-emerald-400 hover:text-emerald-300 underline underline-offset-4">
+              Specs & Diagram →
+            </button>
+            <div class="flex items-center gap-2">
+              <button onclick="navigator.clipboard.writeText('git clone https://github.com/Bit-manipulators/App_pulse.git'); showToast('Git clone command copied!');" 
+                      class="px-2.5 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 font-mono" title="Copy Clone Command">
+                📋 Clone
+              </button>
+              <a href="https://github.com/Bit-manipulators/App_pulse" target="_blank" rel="noopener noreferrer" 
+                 class="px-3 py-1.5 rounded-lg bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/40 text-xs font-mono font-semibold">
+                Repo ↗
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Additional Ecosystem Repositories Bar -->
+      <div class="mt-12 glass-panel p-6 border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center text-2xl">
+            📦
+          </div>
+          <div>
+            <h4 class="text-base font-bold text-white">Ecosystem Repositories & Community Hubs</h4>
+            <p class="text-xs text-slate-400 mt-0.5">Explore our companion portal, security standards, and contribution frameworks.</p>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-3">
+          <a href="https://github.com/Bit-manipulators/open-android-dex-website" target="_blank" rel="noopener noreferrer" 
+             class="px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-slate-300 hover:text-cyan-300 transition-colors">
+            🌐 open-android-dex-website ↗
+          </a>
+          <a href="https://github.com/Bit-manipulators/.github" target="_blank" rel="noopener noreferrer" 
+             class="px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-slate-300 hover:text-cyan-300 transition-colors">
+            🛡️ .github Security & Guidelines ↗
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       5. INTERACTIVE TERMINAL CLI SIMULATOR
+       =================================================================== -->
+  <section id="terminal" class="py-24 relative z-10 border-t border-slate-800 bg-[#080c16]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <div class="text-xs font-mono text-emerald-400 tracking-widest uppercase mb-2">// INTERACTIVE CONSOLE</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+          Bit Manipulators Terminal CLI
+        </h2>
+        <p class="mt-3 text-slate-400 text-sm sm:text-base">
+          Directly query our systems, trigger simulated diagnostic scans, and inspect low-level architectures from the browser.
+        </p>
+
+        <!-- Command Pill Triggers -->
+        <div class="mt-6 flex flex-wrap justify-center gap-2">
+          <button class="cmd-chip px-3 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-xs font-mono text-cyan-300 hover:border-cyan-400 transition-all" data-cmd="help">help</button>
+          <button class="cmd-chip px-3 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-xs font-mono text-cyan-300 hover:border-cyan-400 transition-all" data-cmd="dex --status">dex --status</button>
+          <button class="cmd-chip px-3 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-xs font-mono text-cyan-300 hover:border-cyan-400 transition-all" data-cmd="devlens --audit">devlens --audit</button>
+          <button class="cmd-chip px-3 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-xs font-mono text-cyan-300 hover:border-cyan-400 transition-all" data-cmd="apppulse --telemetry">apppulse --telemetry</button>
+          <button class="cmd-chip px-3 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-xs font-mono text-cyan-300 hover:border-cyan-400 transition-all" data-cmd="team">team</button>
+          <button class="cmd-chip px-3 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-xs font-mono text-cyan-300 hover:border-cyan-400 transition-all" data-cmd="stack">stack</button>
+          <button class="cmd-chip px-3 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-xs font-mono text-cyan-300 hover:border-cyan-400 transition-all" data-cmd="matrix">matrix</button>
+          <button class="cmd-chip px-3 py-1 rounded bg-slate-900 hover:bg-slate-800 border border-slate-700/80 text-xs font-mono text-slate-400 hover:text-white transition-all" data-cmd="clear">clear</button>
+        </div>
+      </div>
+
+      <!-- Terminal Window -->
+      <div class="terminal-window max-w-4xl mx-auto">
+        <!-- Terminal Header -->
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <div class="terminal-dot red"></div>
+            <div class="terminal-dot yellow"></div>
+            <div class="terminal-dot green"></div>
+          </div>
+          <div class="text-xs font-mono text-slate-400">
+            guest@bit-manipulators: ~ (bash 5.2.26)
+          </div>
+          <div class="text-[11px] font-mono text-emerald-400 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            CONNECTED
+          </div>
+        </div>
+
+        <!-- Terminal Body -->
+        <div id="terminalOutput" class="terminal-body">
+          <!-- Filled dynamically by main.js -->
+        </div>
+
+        <!-- Terminal Input Line -->
+        <div class="p-3 bg-[#0c1220] border-t border-slate-800 flex items-center gap-2">
+          <span class="terminal-prompt font-mono text-sm">guest@bit-manipulators:~$</span>
+          <input type="text" id="terminalInput" class="terminal-input" placeholder="Type a command (try 'dex', 'apppulse', 'help')..." autofocus autocomplete="off" spellcheck="false" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       6. PHILOSOPHY & ARCHITECTURAL COMPARISON
+       =================================================================== -->
+  <section id="architecture" class="py-24 relative z-10 border-t border-slate-800 bg-[#07090e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-xs font-mono text-cyan-400 tracking-widest uppercase mb-2">// RADICAL TRANSPARENCY</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+          Commercial Gimmicks vs. First-Principles Engineering
+        </h2>
+        <p class="mt-4 text-slate-400 text-base">
+          Why we build clean-room systems: a direct comparison between the status quo and our deterministic engineering standard.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        
+        <!-- Column 1: Conventional Industry Scams -->
+        <div class="glass-panel p-8 border-rose-500/30 bg-rose-950/10 relative">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-lg bg-rose-900/40 border border-rose-500/40 flex items-center justify-center text-rose-400 text-lg font-bold">
+              ✕
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-rose-200">The Commercial Status Quo</h3>
+              <p class="text-xs font-mono text-rose-400/80">Deceptive Cleaners & Leaky Clouds</p>
+            </div>
+          </div>
+
+          <div class="space-y-4 text-sm text-slate-300">
+            <div class="p-3 rounded-lg bg-slate-900/60 border border-slate-800">
+              <strong class="text-rose-300 block mb-1">Fake RAM "Boost" Animations</strong>
+              Forces cold process kills that spike CPU cycles, drain battery faster, and cause immediate system thrashing upon restart.
+            </div>
+            <div class="p-3 rounded-lg bg-slate-900/60 border border-slate-800">
+              <strong class="text-rose-300 block mb-1">Covert Ad-Broker Telemetry</strong>
+              Silently transmits installed app inventories, WiFi SSIDs, and location data to remote tracking monopolies.
+            </div>
+            <div class="p-3 rounded-lg bg-slate-900/60 border border-slate-800">
+              <strong class="text-rose-300 block mb-1">Unsafe Cloud Code Uploads</strong>
+              Sends developer proprietary source code to cloud servers for simple linting and debugging without sandbox limits.
+            </div>
+            <div class="p-3 rounded-lg bg-slate-900/60 border border-slate-800">
+              <strong class="text-rose-300 block mb-1">Vendor-Locked Desktop Workstations</strong>
+              Restricted to single proprietary phone brands with closed binaries and non-portable drivers.
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2: Bit Manipulators Standard -->
+        <div class="glass-panel p-8 border-cyan-500/40 bg-cyan-950/10 relative shadow-[0_0_40px_rgba(0,240,255,0.1)]">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-lg bg-cyan-900/40 border border-cyan-500/40 flex items-center justify-center text-cyan-400 text-lg font-bold">
+              ✓
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-cyan-200">The Bit Manipulators Standard</h3>
+              <p class="text-xs font-mono text-cyan-400/80">Deterministic, Private & First-Principles</p>
+            </div>
+          </div>
+
+          <div class="space-y-4 text-sm text-slate-200">
+            <div class="p-3 rounded-lg bg-slate-900/60 border border-cyan-500/20">
+              <strong class="text-cyan-300 block mb-1">Deterministic Mathematical Scoring</strong>
+              Points deducted based on proven formulas with full root cause explanation. Never kills background services destructively.
+            </div>
+            <div class="p-3 rounded-lg bg-slate-900/60 border border-cyan-500/20">
+              <strong class="text-cyan-300 block mb-1">100% On-Device Zero Egress</strong>
+              Telemetry and analysis remain in local encrypted SQLite / Room storage. Zero network packets dispatched.
+            </div>
+            <div class="p-3 rounded-lg bg-slate-900/60 border border-cyan-500/20">
+              <strong class="text-cyan-300 block mb-1">Zero-Trust Ephemeral Sandboxing</strong>
+              Code executes in local containers with <code class="text-cyan-400">--net=none</code>, read-only rootfs, and dropped Linux capabilities.
+            </div>
+            <div class="p-3 rounded-lg bg-slate-900/60 border border-cyan-500/20">
+              <strong class="text-cyan-300 block mb-1">Universal Clean-Room Workstation</strong>
+              Standard ADB protocol and FFmpeg pipelines running on any Linux machine with standard Android 10–16 devices.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       7. TECHNOLOGY MATRIX
+       =================================================================== -->
+  <section id="stack" class="py-24 relative z-10 border-t border-slate-800 bg-[#080d19]/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-xs font-mono text-cyan-400 tracking-widest uppercase mb-2">// TECHNICAL SPECIFICATION</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+          Organization Technology Matrix
+        </h2>
+        <p class="mt-4 text-slate-400 text-base">
+          Our systems bridge low-level POSIX and Android kernel protocols with cutting-edge UI compositors and zero-trust sandboxes.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Category 1 -->
+        <div class="glass-panel p-6">
+          <div class="text-xs font-mono text-cyan-400 mb-2">01 // SYSTEMS & COMPOSITING</div>
+          <h4 class="text-lg font-bold text-white mb-4">Display & Compositing</h4>
+          <ul class="space-y-2 text-sm text-slate-300">
+            <li class="flex items-center gap-2"><span class="text-cyan-400">▹</span> Linux Wayland & X11 Compositors</li>
+            <li class="flex items-center gap-2"><span class="text-cyan-400">▹</span> Headless Scrcpy Stream Tunneling</li>
+            <li class="flex items-center gap-2"><span class="text-cyan-400">▹</span> In-Process 60 FPS FFmpeg Decoding</li>
+            <li class="flex items-center gap-2"><span class="text-cyan-400">▹</span> Android ADB & Virtual Displays</li>
+            <li class="flex items-center gap-2"><span class="text-cyan-400">▹</span> C++ Video Texture Shaders</li>
+          </ul>
+        </div>
+
+        <!-- Category 2 -->
+        <div class="glass-panel p-6">
+          <div class="text-xs font-mono text-purple-400 mb-2">02 // CLIENT & USER INTERFACE</div>
+          <h4 class="text-lg font-bold text-white mb-4">Mobile & Desktop UI</h4>
+          <ul class="space-y-2 text-sm text-slate-300">
+            <li class="flex items-center gap-2"><span class="text-purple-400">▹</span> Flutter Desktop (Linux X11/Wayland)</li>
+            <li class="flex items-center gap-2"><span class="text-purple-400">▹</span> Jetpack Compose & Material 3 (Android 15)</li>
+            <li class="flex items-center gap-2"><span class="text-purple-400">▹</span> React Native & Expo 51/54</li>
+            <li class="flex items-center gap-2"><span class="text-purple-400">▹</span> Python & GTK4 Ultra-lightweight Shell</li>
+            <li class="flex items-center gap-2"><span class="text-purple-400">▹</span> Synchronized Line-Number Code Editors</li>
+          </ul>
+        </div>
+
+        <!-- Category 3 -->
+        <div class="glass-panel p-6">
+          <div class="text-xs font-mono text-emerald-400 mb-2">03 // CORE LANGUAGES</div>
+          <h4 class="text-lg font-bold text-white mb-4">Polyglot Codebases</h4>
+          <ul class="space-y-2 text-sm text-slate-300">
+            <li class="flex items-center gap-2"><span class="text-emerald-400">▹</span> Dart (Compositor & Multi-Window Shell)</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400">▹</span> Kotlin 2.0.21 (Android 15 Systems & Coroutines)</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400">▹</span> Python 3.12+ (FastAPI, AST Static Parsers)</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400">▹</span> TypeScript 5.3+ (Client Presentation)</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400">▹</span> Modern C++ & C (FFmpeg Hardware Textures)</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-400">▹</span> Shell / Bash (Automation & Dev Bootstrap)</li>
+          </ul>
+        </div>
+
+        <!-- Category 4 -->
+        <div class="glass-panel p-6">
+          <div class="text-xs font-mono text-amber-400 mb-2">04 // BACKEND & SANDBOXING</div>
+          <h4 class="text-lg font-bold text-white mb-4">Isolation & Runtimes</h4>
+          <ul class="space-y-2 text-sm text-slate-300">
+            <li class="flex items-center gap-2"><span class="text-amber-400">▹</span> Docker Micro-Sandboxes (--net=none)</li>
+            <li class="flex items-center gap-2"><span class="text-amber-400">▹</span> Linux cgroups & Dropped Capabilities</li>
+            <li class="flex items-center gap-2"><span class="text-amber-400">▹</span> FastAPI 0.115+ & Asynchronous Event Loops</li>
+            <li class="flex items-center gap-2"><span class="text-amber-400">▹</span> SQLite & Room On-Device Databases</li>
+            <li class="flex items-center gap-2"><span class="text-amber-400">▹</span> Local LLMs (Ollama) & Offline Fallbacks</li>
+          </ul>
+        </div>
+
+        <!-- Category 5 -->
+        <div class="glass-panel p-6">
+          <div class="text-xs font-mono text-blue-400 mb-2">05 // QUALITY & CI/CD</div>
+          <h4 class="text-lg font-bold text-white mb-4">Continuous Verification</h4>
+          <ul class="space-y-2 text-sm text-slate-300">
+            <li class="flex items-center gap-2"><span class="text-blue-400">▹</span> GitHub Actions Automated Workflows</li>
+            <li class="flex items-center gap-2"><span class="text-blue-400">▹</span> Detekt Static Code Analysis (Kotlin)</li>
+            <li class="flex items-center gap-2"><span class="text-blue-400">▹</span> Pytest & Vitest Unit Test Suites</li>
+            <li class="flex items-center gap-2"><span class="text-blue-400">▹</span> Pre-configured VS Code Dev Containers</li>
+            <li class="flex items-center gap-2"><span class="text-blue-400">▹</span> Hermetic CMake Build Pipelines</li>
+          </ul>
+        </div>
+
+        <!-- Category 6 -->
+        <div class="glass-panel p-6">
+          <div class="text-xs font-mono text-rose-400 mb-2">06 // LICENSING & GOVERNANCE</div>
+          <h4 class="text-lg font-bold text-white mb-4">Clean-Room Governance</h4>
+          <ul class="space-y-2 text-sm text-slate-300">
+            <li class="flex items-center gap-2"><span class="text-rose-400">▹</span> GNU General Public License v3.0 (GPL-3.0)</li>
+            <li class="flex items-center gap-2"><span class="text-rose-400">▹</span> Massachusetts Institute of Technology (MIT)</li>
+            <li class="flex items-center gap-2"><span class="text-rose-400">▹</span> Contributor Covenant Code of Conduct</li>
+            <li class="flex items-center gap-2"><span class="text-rose-400">▹</span> Transparent Security Policy (SECURITY.md)</li>
+            <li class="flex items-center gap-2"><span class="text-rose-400">▹</span> 100% Free & Open Source Software (FOSS)</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       8. MAINTAINERS & LEADERSHIP TEAM
+       =================================================================== -->
+  <section id="team" class="py-24 relative z-10 border-t border-slate-800 bg-[#07090e]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-xs font-mono text-cyan-400 tracking-widest uppercase mb-2">// CORE ARCHITECTS</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+          Maintainers & Core Team
+        </h2>
+        <p class="mt-4 text-slate-400 text-base">
+          Built by passionate systems engineers, reverse engineering enthusiasts, and kernel tinkerers based in India.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Maintainer 1: Aditya -->
+        <div class="glass-panel p-6 flex flex-col justify-between text-center group border-slate-800 hover:border-cyan-500/60 transition-all">
+          <div>
+            <div class="relative w-24 h-24 mx-auto mb-5 rounded-full p-1 bg-gradient-to-tr from-cyan-400 to-blue-500 group-hover:shadow-[0_0_25px_rgba(0,240,255,0.4)] transition-all">
+              <img src="assets/images/avatar-aditya.png" alt="Aditya R. Satapathy" class="w-full h-full rounded-full object-cover bg-slate-900" />
+            </div>
+            <h3 class="text-xl font-bold text-white">Aditya R. Satapathy</h3>
+            <div class="text-xs font-mono text-cyan-400 mb-2">@Myparadox-creator</div>
+            <div class="inline-block px-2.5 py-1 rounded bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 text-[11px] font-mono mb-4">
+              Systems Architect & Maintainer
+            </div>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6">
+              Specializes in Linux desktop compositing, Wayland/X11 protocols, reverse engineering, and low-latency display streaming pipelines.
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-slate-800 flex items-center justify-center gap-3">
+            <a href="https://github.com/Myparadox-creator" target="_blank" rel="noopener noreferrer" 
+               class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-slate-300 hover:text-cyan-300 transition-colors">
+              GitHub ↗
+            </a>
+            <a href="https://portfolio-murex-psi-74.vercel.app/" target="_blank" rel="noopener noreferrer" 
+               class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-slate-300 hover:text-cyan-300 transition-colors">
+              Portfolio ↗
+            </a>
+          </div>
+        </div>
+
+        <!-- Maintainer 2: Anurag -->
+        <div class="glass-panel p-6 flex flex-col justify-between text-center group border-slate-800 hover:border-purple-500/60 transition-all">
+          <div>
+            <div class="relative w-24 h-24 mx-auto mb-5 rounded-full p-1 bg-gradient-to-tr from-purple-400 to-indigo-500 group-hover:shadow-[0_0_25px_rgba(139,92,246,0.4)] transition-all">
+              <img src="assets/images/avatar-anurag.png" alt="Anurag Patel" class="w-full h-full rounded-full object-cover bg-slate-900" />
+            </div>
+            <h3 class="text-xl font-bold text-white">Anurag Patel</h3>
+            <div class="text-xs font-mono text-purple-400 mb-2">@anurag200513</div>
+            <div class="inline-block px-2.5 py-1 rounded bg-purple-950/60 border border-purple-500/30 text-purple-300 text-[11px] font-mono mb-4">
+              Founder & Lead Developer
+            </div>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6">
+              Architecting zero-trust mobile sandboxes, on-device AI copilot diagnostics, deterministic metrics, and organizational technical direction.
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-slate-800 flex items-center justify-center gap-3">
+            <a href="https://github.com/anurag200513" target="_blank" rel="noopener noreferrer" 
+               class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-slate-300 hover:text-purple-300 transition-colors">
+              GitHub ↗
+            </a>
+            <a href="mailto:2005anuragpatel@gmail.com" 
+               class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-slate-300 hover:text-purple-300 transition-colors">
+              Contact ✉
+            </a>
+          </div>
+        </div>
+
+        <!-- Maintainer 3: Amit -->
+        <div class="glass-panel p-6 flex flex-col justify-between text-center group border-slate-800 hover:border-emerald-500/60 transition-all">
+          <div>
+            <div class="relative w-24 h-24 mx-auto mb-5 rounded-full p-1 bg-gradient-to-tr from-emerald-400 to-teal-500 group-hover:shadow-[0_0_25px_rgba(16,185,129,0.4)] transition-all">
+              <img src="assets/images/avatar-amit.png" alt="Amit Padhan" class="w-full h-full rounded-full object-cover bg-slate-900" />
+            </div>
+            <h3 class="text-xl font-bold text-white">Amit Padhan</h3>
+            <div class="text-xs font-mono text-emerald-400 mb-2">@amitpadhan525</div>
+            <div class="inline-block px-2.5 py-1 rounded bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 text-[11px] font-mono mb-4">
+              Core Maintainer & Systems Engineer
+            </div>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6">
+              Arch Linux user, Bash & Python automation architect, Linux internals explorer, and cybersecurity research engineer.
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-slate-800 flex items-center justify-center gap-3">
+            <a href="https://github.com/amitpadhan525" target="_blank" rel="noopener noreferrer" 
+               class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-slate-300 hover:text-emerald-300 transition-colors">
+              GitHub ↗
+            </a>
+            <a href="https://amitpadhan525.github.io/" target="_blank" rel="noopener noreferrer" 
+               class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-slate-300 hover:text-emerald-300 transition-colors">
+              Website ↗
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Contributor Callout -->
+      <div class="mt-12 text-center p-8 glass-panel border-cyan-500/20 max-w-3xl mx-auto">
+        <h4 class="text-xl font-bold text-white mb-2">Want to shape the future of mobile systems?</h4>
+        <p class="text-sm text-slate-300 mb-6">
+          We welcome systems programmers, reverse engineers, UI designers, and technical writers. Jump into our good first issues or open an architectural RFC.
+        </p>
+        <div class="flex flex-wrap justify-center gap-3">
+          <a href="https://github.com/Bit-manipulators/open-android-dex/blob/main/docs/GOOD_FIRST_ISSUES.md" target="_blank" rel="noopener noreferrer" 
+             class="btn-cyber-primary text-xs font-mono">
+            Browse Good First Issues →
+          </a>
+          <a href="https://github.com/Bit-manipulators/.github/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" 
+             class="btn-cyber-secondary text-xs font-mono">
+            Read Contributing Guide
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       9. OPEN GOVERNANCE & COMMUNITY GUIDELINES
+       =================================================================== -->
+  <section id="community" class="py-24 relative z-10 border-t border-slate-800 bg-[#080d19]/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-xs font-mono text-cyan-400 tracking-widest uppercase mb-2">// COMMUNITY & GOVERNANCE</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+          Open Source Ethics & Standards
+        </h2>
+        <p class="mt-4 text-slate-400 text-base">
+          Our projects strictly abide by open-source ethics, respectful communication, and responsible security disclosures.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        
+        <div class="glass-panel p-6">
+          <div class="w-10 h-10 rounded-lg bg-blue-950 border border-blue-500/40 flex items-center justify-center text-blue-400 text-lg font-bold mb-4">
+            🤝
+          </div>
+          <h4 class="text-base font-bold text-white mb-2">Code of Conduct</h4>
+          <p class="text-xs text-slate-300 leading-relaxed mb-4">
+            We foster an open, welcoming, and harassment-free community. All participants agree to abide by our standard Contributor Covenant.
+          </p>
+          <a href="https://github.com/Bit-manipulators/.github/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-cyan-400 hover:text-cyan-300">
+            Read CODE_OF_CONDUCT.md →
+          </a>
+        </div>
+
+        <div class="glass-panel p-6">
+          <div class="w-10 h-10 rounded-lg bg-emerald-950 border border-emerald-500/40 flex items-center justify-center text-emerald-400 text-lg font-bold mb-4">
+            🛡️
+          </div>
+          <h4 class="text-base font-bold text-white mb-2">Responsible Security</h4>
+          <p class="text-xs text-slate-300 leading-relaxed mb-4">
+            Found a vulnerability? We take zero-trust security seriously and commit to rapid remediation via responsible private disclosure.
+          </p>
+          <a href="https://github.com/Bit-manipulators/.github/blob/main/SECURITY.md" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-cyan-400 hover:text-cyan-300">
+            Read SECURITY.md Policy →
+          </a>
+        </div>
+
+        <div class="glass-panel p-6">
+          <div class="w-10 h-10 rounded-lg bg-purple-950 border border-purple-500/40 flex items-center justify-center text-purple-400 text-lg font-bold mb-4">
+            📜
+          </div>
+          <h4 class="text-base font-bold text-white mb-2">Clean-Room Licensing</h4>
+          <p class="text-xs text-slate-300 leading-relaxed mb-4">
+            All code is released under transparent, battle-tested open licenses (GPLv3 for system compositors, MIT for sandboxes and mobile tools).
+          </p>
+          <a href="https://github.com/Bit-manipulators/.github/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-cyan-400 hover:text-cyan-300">
+            View Licensing Terms →
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       10. QUICK START CODE SANDBOX
+       =================================================================== -->
+  <section class="py-20 relative z-10 border-t border-slate-800 bg-[#07090e]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="glass-panel p-6 sm:p-8 border-cyan-500/30">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <div>
+            <div class="text-xs font-mono text-cyan-400">QUICK SETUP</div>
+            <h3 class="text-xl font-bold text-white">Get Started with Bit Manipulators</h3>
+          </div>
+          <div class="text-xs font-mono text-slate-400">Linux • macOS • Android</div>
+        </div>
+
+        <div class="bg-slate-950 rounded-xl p-4 border border-slate-800 relative font-mono text-xs text-slate-200 overflow-x-auto">
+          <div class="text-slate-500 mb-2"># Clone Open Android DeX & Run Bootstrap Check</div>
+          <div class="text-cyan-400">$ git clone https://github.com/Bit-manipulators/open-android-dex.git</div>
+          <div class="text-cyan-400">$ cd open-android-dex &amp;&amp; ./scripts/dev_bootstrap.sh --check-deps</div>
+          <div class="text-slate-500 my-2"># Check connected Android device via ADB</div>
+          <div class="text-purple-400">$ adb devices -l</div>
+          <div class="text-slate-500 my-2"># Launch Flutter Compositor Workspace</div>
+          <div class="text-emerald-400">$ flutter run -d linux</div>
+
+          <button onclick="navigator.clipboard.writeText('git clone https://github.com/Bit-manipulators/open-android-dex.git\ncd open-android-dex && ./scripts/dev_bootstrap.sh --check-deps\nadb devices -l\nflutter run -d linux'); showToast('Setup commands copied!');" 
+                  class="absolute top-4 right-4 px-3 py-1.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-mono border border-slate-700 flex items-center gap-1.5">
+            <span>📋</span> Copy Script
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       11. PROJECT DETAIL MODAL (LIGHTBOX)
+       =================================================================== -->
+  <div id="projectModal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-content p-6 sm:p-8">
+      <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-6">
+        <div>
+          <h3 id="modalTitle" class="text-2xl font-bold text-white">Project Title</h3>
+          <p id="modalSubtitle" class="text-xs font-mono text-cyan-400 mt-0.5">Project Category & Status</p>
+        </div>
+        <button id="modalCloseBtn" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center font-bold text-lg" aria-label="Close Modal">
+          ✕
+        </button>
+      </div>
+
+      <div id="modalBody">
+        <!-- Rendered by JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       12. FOOTER
+       =================================================================== -->
+  <footer class="py-16 relative z-10 border-t border-cyan-500/20 bg-[#05070c]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+        
+        <!-- Org Info -->
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            <img src="assets/images/org-logo.png" alt="Bit Manipulators Logo" class="w-8 h-8 rounded-lg" />
+            <span class="font-extrabold text-white tracking-wider">BIT MANIPULATORS</span>
+          </div>
+          <p class="text-slate-400 text-sm max-w-md leading-relaxed mb-4">
+            Bending bits, unleashing mobile hardware, and engineering zero-trust systems. An open-source collective building from first principles.
+          </p>
+          <div class="flex items-center gap-2 text-xs font-mono text-slate-500">
+            <span>HQ: India 🇮🇳</span>
+            <span>•</span>
+            <span class="text-emerald-400 flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              All Systems Operational
+            </span>
+          </div>
+        </div>
+
+        <!-- Ecosystem Links -->
+        <div>
+          <h5 class="text-xs font-mono text-cyan-400 uppercase tracking-wider mb-4">Flagship Repos</h5>
+          <ul class="space-y-2 text-sm text-slate-400 font-mono">
+            <li><a href="https://github.com/Bit-manipulators/open-android-dex" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400">open-android-dex</a></li>
+            <li><a href="https://github.com/Bit-manipulators/DevLense" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400">DevLens</a></li>
+            <li><a href="https://github.com/Bit-manipulators/App_pulse" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400">AppPulse</a></li>
+            <li><a href="https://github.com/Bit-manipulators/open-android-dex-website" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400">DeX Web Portal</a></li>
+          </ul>
+        </div>
+
+        <!-- Governance Links -->
+        <div>
+          <h5 class="text-xs font-mono text-cyan-400 uppercase tracking-wider mb-4">Governance</h5>
+          <ul class="space-y-2 text-sm text-slate-400 font-mono">
+            <li><a href="https://github.com/Bit-manipulators/.github/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400">Contributing</a></li>
+            <li><a href="https://github.com/Bit-manipulators/.github/blob/main/SECURITY.md" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400">Security Policy</a></li>
+            <li><a href="https://github.com/Bit-manipulators/.github/blob/main/CODE_OF_CONDUCT.md" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400">Code of Conduct</a></li>
+            <li><a href="https://github.com/Bit-manipulators/.github/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400">Licenses (GPLv3 / MIT)</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500">
+        <div>
+          © 2026 Bit Manipulators Open Source Collective. Built with ❤️ from India.
+        </div>
+        <div class="flex items-center gap-6">
+          <a href="#" class="hover:text-cyan-400">Back to Top ↑</a>
+          <a href="https://github.com/Bit-manipulators" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400">GitHub Org ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Core JavaScript -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
