@@ -1114,17 +1114,22 @@ document.addEventListener('DOMContentLoaded', () => {
   if (mobileToggle && mobileMenu) {
     mobileToggle.addEventListener('click', (e) => {
       e.stopPropagation();
-      mobileMenu.classList.toggle('hidden');
+      const isOpen = mobileMenu.classList.toggle('hidden') === false;
+      mobileToggle.setAttribute('aria-expanded', String(isOpen));
       audio.blip(500, 0.03);
     });
 
     mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileToggle.setAttribute('aria-expanded', 'false');
+      });
     });
 
     document.addEventListener('click', (e) => {
       if (!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
         mobileMenu.classList.add('hidden');
+        mobileToggle.setAttribute('aria-expanded', 'false');
       }
     });
   }
