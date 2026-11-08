@@ -72,7 +72,7 @@
   }
   </script>
 </head>
-<body class="bg-[#07090e] text-slate-100 min-h-screen selection:bg-cyan-500/30 selection:text-cyan-300 relative">
+<body id="top" class="bg-[#07090e] text-slate-100 min-h-screen selection:bg-cyan-500/30 selection:text-cyan-300 relative">
 
   <!-- Interactive Cyber Canvas Background -->
   <canvas id="cyberCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
@@ -107,7 +107,7 @@
       </a>
 
       <!-- Desktop Navigation Links -->
-      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+      <nav aria-label="Primary navigation" class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
         <a href="#pillars" class="hover:text-cyan-400 transition-colors">Pillars</a>
         <a href="#projects" class="hover:text-cyan-400 transition-colors flex items-center gap-1.5">
           Projects
@@ -188,6 +188,8 @@
       </div>
     </div>
   </header>
+
+  <main>
 
   <!-- ===================================================================
        2. HERO SECTION
@@ -1105,6 +1107,8 @@
 
     </div>
   </section>
+
+  </main>
 
   <!-- ===================================================================
        9. PROJECT DETAIL MODAL (LIGHTBOX WITH GALLERY)
